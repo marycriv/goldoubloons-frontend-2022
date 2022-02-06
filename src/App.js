@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
+import { UserContext } from "./UserContext";
+
+import MainContainer from './containers/MainContainer';
+import Header from './components/Header';
+import LoginFormContainer from "./containers/LoginFormContainer";
+
+import './styling.css';
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <div className="header">
+          <Header />
+        </div>
+        <div className="contents">
+        <UserContext.Provider value={{ user, setUser }}>
+          <Routes>
+            <Route path="/login" exact element={<LoginFormContainer/>}/>
+            <Route path="/main" element={<MainContainer/>}/>
+          </Routes>
+        </UserContext.Provider>
+        </div>
+      </div>
+    </Router>
   );
 }
 

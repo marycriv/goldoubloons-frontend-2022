@@ -1,0 +1,68 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+
+.contents {
+    padding: 1.2rem;
+    margin-top: 4rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+.footer {
+    text-align-last: center;
+    font-size: 2rem;
+    padding-top: 120px;
+}
+
+.footer svg {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.links svg {
+    text-align-last: center;
+    font-size: 4rem;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.Mui-selected {
+    font-family: 'Open Sans', sans-serif;
+    color: #17BEBB !important;
+}
+
+.css-1aquho2-MuiTabs-indicator {
+    background-color: #17BEBB !important;
+}
+
+a {
+    color: #17BEBB;
+}
+
+h3 {
+    padding-bottom: 8px;
+}
+
+.title-header {
+    background-color: black;
+    color: white;
+    font-weight: 900;
+    padding: 1rem;
+}
+
+.site-title {
+    text-align: center;
+}
+
+.coin-titles {
+    text-transform: capitalize;
+}
