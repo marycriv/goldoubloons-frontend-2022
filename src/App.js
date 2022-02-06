@@ -14,19 +14,17 @@ function App() {
 
   return (
     <Router>
+      <UserContext.Provider value={{ user, setUser }}>
       <div className="app">
-        <div className="header">
           <Header />
-        </div>
         <div className="contents">
-        <UserContext.Provider value={{ user, setUser }}>
           <Routes>
             <Route path="/login" exact element={<LoginFormContainer/>}/>
             <Route path="/main" element={<MainContainer/>}/>
           </Routes>
-        </UserContext.Provider>
         </div>
       </div>
+      </UserContext.Provider>
     </Router>
   );
 }

@@ -1,10 +1,24 @@
 import React from 'react';
+import Account from './Account'; 
+import Grid from '@mui/material/Grid';
+
+import '../styling.css';
 
 function Header() {
         return(
             <>
-                <div className="title-header">
-                    <div className="site-title">Jeff Golddoubloons</div>
+                <div className="header">
+                    <Grid container spacing={2}>
+                        <Grid item xs={2}>
+                            <img src={process.env.PUBLIC_URL + "logo.png"} width="20px"/>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div className="site-title">Jeff Golddoubloons</div>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Account />
+                        </Grid>
+                    </Grid>
                 </div>
             </>
         )

@@ -7,8 +7,20 @@ body {
     top: 0;
     width: 100%;
     z-index: 1;
+    background-color: black;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
+.header img {
+    padding: 5px;
+    margin-left: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
 
 .contents {
     padding: 1.2rem;
@@ -35,34 +47,24 @@ body {
     padding-left: 40px;
 }
 
-.Mui-selected {
-    font-family: 'Open Sans', sans-serif;
-    color: #17BEBB !important;
-}
-
-.css-1aquho2-MuiTabs-indicator {
-    background-color: #17BEBB !important;
-}
-
-a {
-    color: #17BEBB;
-}
-
 h3 {
     padding-bottom: 8px;
 }
 
-.title-header {
-    background-color: black;
-    color: white;
-    font-weight: 900;
-    padding: 1rem;
-}
-
 .site-title {
     text-align: center;
+    padding-top: 10px;
+    font-weight: 900;
 }
 
 .coin-titles {
     text-transform: capitalize;
+}
+
+.coin-icons {
+    display: contents;
+}
+
+.css-1njs860-MuiPaper-root-MuiCard-root {
+    padding: 15px;
 }
