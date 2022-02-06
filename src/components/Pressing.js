@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
+import Divider from '@mui/material/Divider';
 
 import '../styling.css';
 
@@ -30,13 +31,24 @@ function Pressing(props) {
                             <p dangerouslySetInnerHTML={{__html: props.pressData.description}} />
                         </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button size="small" href={`link`} zindex={1}>Read More</Button>
-                    <FavoriteBorderIcon />
-                    Ξ 3
-                    <FontAwesomeIcon icon={faEthereum} />
-                </CardActions> 
-            </Card>
+            <Divider />
+                    <CardActions>
+                        <Grid container spacing={2}>
+                            <Grid item xs={6}>
+                                <Button size="small" href={`link`} zindex={1}>Read More</Button>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <FavoriteBorderIcon />
+                            </Grid>
+                            <Grid item xs={2}>
+                                Ξ 3
+                            </Grid>
+                            <Grid item xs={2}>
+                                <FontAwesomeIcon icon={faEthereum} />
+                            </Grid>
+                        </Grid>
+                    </CardActions> 
+                </Card>
         </Grid>
         )
 }

@@ -15,7 +15,17 @@ function App() {
   return (
     <Router>
       <UserContext.Provider value={{ user, setUser }}>
+      {user ? 
       <div className="app">
+        <Header />
+      <div className="contents">
+        <Routes>
+          <Route path="/login" exact element={<LoginFormContainer/>}/>
+          <Route path="/main" element={<MainContainer/>}/>
+        </Routes>
+      </div>
+    </div>
+      : <div className="app">
           <Header />
         <div className="contents">
           <Routes>
@@ -23,7 +33,7 @@ function App() {
             <Route path="/main" element={<MainContainer/>}/>
           </Routes>
         </div>
-      </div>
+      </div>}
       </UserContext.Provider>
     </Router>
   );

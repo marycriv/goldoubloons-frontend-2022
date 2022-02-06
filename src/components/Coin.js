@@ -14,7 +14,6 @@ import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import '../styling.css';
 
 function Coin(props) {
-    console.log(props)
         return(
             <Grid item>
                 <Card sx={{ width: 350 }} elevation={0} variant="outlined">
