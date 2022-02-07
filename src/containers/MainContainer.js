@@ -6,11 +6,11 @@ import LoginFormContainer from './LoginFormContainer';
 function MainContainer() {
 
     return(
-        <>
+        <div className="contents">
             {/* <LoginFormContainer /> */}
             <WalletContainer />
             <PressingContainer />
-        </>
+        </div>
     )
 }
 

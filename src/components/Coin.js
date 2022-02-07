@@ -10,8 +10,11 @@ import Divider from '@mui/material/Divider';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
+import CryptoCompare from "react-crypto-compare";
 
 import '../styling.css';
+
+const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd"
 
 function Coin(props) {
         return(
@@ -34,13 +37,13 @@ function Coin(props) {
                     <CardActions>
                         <Grid container spacing={2}>
                             <Grid item xs={6}>
-                                <Button size="small" href={`link`} zindex={1}>Read More</Button>
+                                <CryptoCompare from="ETH" to="USD" amount={props.pressData.cost} apikey={APIkey} />
                             </Grid>
                             <Grid item xs={2}>
                                 <FavoriteBorderIcon />
                             </Grid>
                             <Grid item xs={2}>
-                                Ξ 3
+                                Ξ {props.pressData.cost}
                             </Grid>
                             <Grid item xs={2}>
                                 <FontAwesomeIcon icon={faEthereum} />

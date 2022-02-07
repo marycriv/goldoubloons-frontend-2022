@@ -7,6 +7,8 @@ import MainContainer from './containers/MainContainer';
 import Header from './components/Header';
 import LoginFormContainer from "./containers/LoginFormContainer";
 
+import WelcomePage from "./components/WelcomePage";
+
 import './styling.css';
 
 function App() {
@@ -27,12 +29,10 @@ function App() {
     </div>
       : <div className="app">
           <Header />
-        <div className="contents">
-          <Routes>
-            <Route path="/login" exact element={<LoginFormContainer/>}/>
-            <Route path="/main" element={<MainContainer/>}/>
-          </Routes>
-        </div>
+            <Routes>
+              <Route path="/" exact element={<WelcomePage />} />
+              <Route path="/login" exact element={<LoginFormContainer/>}/>
+            </Routes>
       </div>}
       </UserContext.Provider>
     </Router>

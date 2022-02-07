@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { login } from '../login';
-import { UserContext } from '../UserContext';
 import Modal from '@mui/material/Modal';
+
+import { login, logout, selectUser } from '../features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 import '../styling.css';
 
@@ -18,52 +18,38 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
-    outline: 0
+    p: 4
   };
 
 function LoginFormContainer() {
-    const { user, setUser } = useContext(UserContext);
-    const [error, setError] = useState("");
-
+    // functionality for components
     const [details, setDetails] = useState({username: "", password: ""})
-
-    const submitHandler = e => {
-        e.preventDefault();
-
-        Login(details)
-    }
-
-
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const Login = (details) => {
-        console.log(details)
-        const user = {
-            user: {
-                username: details.username,
-                password: details.password
-            }
-        }
-        console.log(user)
-        axios.post('http://localhost:3010/api/v1/login', user)
-        .then(response => console.log(response.data.user));
-        setUser(user);
-    }
+    // current user info
+    const userInfo = useSelector(selectUser);
 
-    const Logout = (e) => {
+    // reducer stuff
+
+    const dispatch = useDispatch();
+
+    const loginHandler = e => {
         e.preventDefault();
-
-        console.log("logout")
-        axios.post('http://localhost:3010/api/v1/logout')
-        .then(response => console.log(response));
-        setUser(null);
+        dispatch(login({
+            username: details.username,
+            password: details.password,
+            loggedIn: true
+        }))
+    }
+    const logoutHandler = (e) => {
+        e.preventDefault();
+        dispatch(logout())
     }
 
         return(
-            <>
+            <div className="contents">
             <Button onClick={handleOpen}>Open modal</Button>
                 <Modal
                     open={open}
@@ -76,6 +62,7 @@ function LoginFormContainer() {
                             component="form"
                             noValidate
                             autoComplete="off"
+                            // onSubmit={(e) => submitHandler(e)}
                         >
                                 <TextField
                                 required
@@ -95,13 +82,20 @@ function LoginFormContainer() {
                                 value={details.password}
                                 />
                                 <br/>
-                            { user ? <Button variant="contained" onClick={e => Logout(e)} >Logout</Button> : 
-                                <Button variant="contained" onClick={e => submitHandler(e)} >Login</Button>
+                            { userInfo ? 
+                                <Button 
+                                    variant="contained" 
+                                    onClick={e => logoutHandler(e)} 
+                                >Logout</Button> : 
+                                <Button 
+                                    variant="contained" 
+                                    onClick={(e) => loginHandler(e)}
+                                >Login</Button>
                             }
                         </Box>
                     </Box>
                 </Modal>
-            </>
+                </div>
         )
 }
 

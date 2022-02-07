@@ -16,8 +16,6 @@ body {
 .header img {
     padding: 5px;
     margin-left: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
     background-color: white;
     border-radius: 50%;
 }
@@ -67,4 +65,20 @@ h3 {
 
 .css-1njs860-MuiPaper-root-MuiCard-root {
     padding: 15px;
+}
+
+.welcome-page {
+    background-color: black;
+    color: white;
+    height: 30rem;
+}
+
+.welcome-page h1 {
+    padding-top: 10rem;
+    padding-left: 5rem;
+}
+
+.react-crypto-compare {
+    overflow: hidden;
+    max-width: 67px;
 }

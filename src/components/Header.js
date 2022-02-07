@@ -10,7 +10,7 @@ function Header() {
                 <div className="header">
                     <Grid container spacing={2}>
                         <Grid item xs={2}>
-                            <img src={process.env.PUBLIC_URL + "logo.png"} width="20px"/>
+                            <img src={process.env.PUBLIC_URL + "logo.png"} width="20px" alt="app-logo" />
                         </Grid>
                         <Grid item xs={6}>
                             <div className="site-title">Jeff Golddoubloons</div>
