@@ -5,12 +5,12 @@ import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 
 function PressingContainer() {
-    const API = 'http://localhost:3010'
+    const API = 'http://localhost:3010/api/v1/'
 
     let [pressingData, getPressingData] = useState(null);
 
     useEffect(() => {
-        fetch(API + `/api/v1/pressings`)
+        fetch(API + `pressings`)
         .then(response => response.json())
         .then(pressingResponse => getPressingData(pressingResponse.data))
     },[])
@@ -35,7 +35,7 @@ function PressingContainer() {
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         {pressingData.map((e, i) =>
-                            <Pressing variant="rectangular" width={350} height={300} key={i} pressData={pressingData[i].attributes} />
+                            <Pressing variant="rectangular" width={350} height={300} key={i} pressData={pressingData[i].attributes} pressId={pressingData[i].id} />
                         )}
                     </Grid>
                 </Box>

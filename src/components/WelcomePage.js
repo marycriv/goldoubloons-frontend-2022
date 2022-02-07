@@ -7,6 +7,7 @@ function WelcomePage() {
             <>
                 <div className="welcome-page">
                     <h1>Welcome to Golddoubloons!</h1>
+                    <h2><a href="/login">Login</a></h2>
                 </div>
             </>
         )

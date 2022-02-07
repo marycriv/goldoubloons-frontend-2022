@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -14,36 +14,38 @@ import CryptoCompare from "react-crypto-compare";
 
 import '../styling.css';
 
-const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd"
+
 
 function Coin(props) {
+    console.log(props.coinsOriginal.attributes.for_sale)
         return(
+
             <Grid item>
                 <Card sx={{ width: 350 }} elevation={0} variant="outlined">
                     <CardMedia
                         component="img"
-                        image={process.env.PUBLIC_URL + props.pressData.slug + `.gif`}
-                        alt={props.pressData.name}
+                        image={process.env.PUBLIC_URL + props.coinDataToCoin.slug + `.gif`}
+                        alt={props.coinDataToCoin.name}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div" className="coin-titles">
-                                {props.pressData.name}
+                                {props.coinDataToCoin.name} | {props.coinsOriginal.attributes.for_sale.toString()}
                             </Typography>
                             <Typography variant="body2" color="text.secondary" component="div">
-                                <p dangerouslySetInnerHTML={{__html: props.pressData.description}} />
+                                <p dangerouslySetInnerHTML={{__html: props.coinDataToCoin.description}} />
                             </Typography>
                     </CardContent>
                     <Divider />
                     <CardActions>
                         <Grid container spacing={2}>
                             <Grid item xs={6}>
-                                <CryptoCompare from="ETH" to="USD" amount={props.pressData.cost} apikey={APIkey} />
+                                <CryptoCompare from="ETH" to="USD" amount={10} apikey={APIkey} />
                             </Grid>
                             <Grid item xs={2}>
                                 <FavoriteBorderIcon />
                             </Grid>
                             <Grid item xs={2}>
-                                Ξ {props.pressData.cost}
+                                Ξ {props.coinDataToCoin.cost}
                             </Grid>
                             <Grid item xs={2}>
                                 <FontAwesomeIcon icon={faEthereum} />

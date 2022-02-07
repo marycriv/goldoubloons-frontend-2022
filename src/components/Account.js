@@ -10,13 +10,13 @@ import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import Button from '@mui/material/Button';
 
-import { login } from '../login';
+import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../UserContext';
 
 export default function Account() {
-    const { user, setUser } = useContext(UserContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -25,6 +25,14 @@ export default function Account() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const navigate = useNavigate();
+
+  const { user, setUser } = useContext(UserContext);
+
+  function profileHandler(e){
+      e.preventDefaul();
+      navigate(`/${user.user.username}`)
+  }
 
   return (
     <React.Fragment>
@@ -32,7 +40,10 @@ export default function Account() {
         <>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                     <Typography sx={{ minWidth: 100 }}>Contact</Typography>
-                    <Typography sx={{ minWidth: 100 }}>Profile</Typography>
+                    <Typography sx={{ minWidth: 100 }}>
+                            <Button onClick={ () => {
+                            navigate('/mike');
+                        }}>Profile</Button></Typography>
                     <Tooltip title="Account settings">
                         <IconButton
                             onClick={handleClick}
@@ -42,7 +53,8 @@ export default function Account() {
                             aria-haspopup="true"
                             aria-expanded={open ? 'true' : undefined}
                         >
-                            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                            <img src={user.user.icon} width="32px" alt="boop" />
+                            {/* <Avatar sx={{ width: 32, height: 32 }}>M</Avatar> */}
                         </IconButton>
                     </Tooltip>
                 </Box><Menu
@@ -93,11 +105,10 @@ export default function Account() {
                             </ListItemIcon>
                             Settings
                         </MenuItem>
-                        <MenuItem
-                            onClick={() => {
-                                setUser(null);
-                            } }
-                        >
+                        <MenuItem onClick={ () => {
+                            setUser(null);
+                            navigate('/');
+                        }} >
                             <ListItemIcon>
                                 <Logout fontSize="small" />
                             </ListItemIcon>
