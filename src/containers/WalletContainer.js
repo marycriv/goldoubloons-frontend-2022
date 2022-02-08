@@ -29,10 +29,6 @@ function WalletContainer() {
     },[])
 
 
-
-    console.log("user", user.id)    
-
-
     if (pressingData === null) {
         const n = 27;
         return (

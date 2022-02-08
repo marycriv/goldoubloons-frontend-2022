@@ -8,7 +8,7 @@ function MainContainer() {
     return(
         <div>
             {/* <LoginFormContainer /> */}
-            <WalletContainer />
+            {/* <WalletContainer /> */}
             <PressingContainer />
         </div>
     )

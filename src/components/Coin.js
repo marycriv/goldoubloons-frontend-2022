@@ -14,12 +14,12 @@ import CryptoCompare from "react-crypto-compare";
 
 import '../styling.css';
 
-
+const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd"
 
 function Coin(props) {
     console.log(props.coinsOriginal.attributes.for_sale)
+    
         return(
-
             <Grid item>
                 <Card sx={{ width: 350 }} elevation={0} variant="outlined">
                     <CardMedia

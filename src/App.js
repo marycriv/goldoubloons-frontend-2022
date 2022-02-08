@@ -19,6 +19,7 @@ function App() {
 
   const userVal = useMemo(() => ({ user, setUser }), [user, setUser]);
   const coinsVal = useMemo(() => ({ coins, setCoins }), [coins, setCoins]);
+  
 
   return (
     <Router>
