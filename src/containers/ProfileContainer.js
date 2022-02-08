@@ -11,9 +11,11 @@ export default function ProfileContainer() {
 
   return (
     <>
+      <div className="user-profile">
         <p>Welcome back, <b>{user.user.display_name}</b></p>
-        <p>Take a look at your wallet</p>
+        <p>Take a look at your portfolio</p>
         <WalletContainer />
+      </div>
     </>
   );
 }

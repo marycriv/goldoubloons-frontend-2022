@@ -86,13 +86,21 @@ h3 {
     padding-left: 5rem;
 }
 
-.react-crypto-compare {
-    overflow: hidden;
-    max-width: 67px;
+.welcome-btn {
+    padding-left: 5rem;
 }
 
 .welcome-page-coins {
     padding: 1.2rem;
     padding-left: 15rem;
     padding-right: 15rem;
+}
+
+.user-profile b {
+    text-transform: capitalize;
+}
+
+.react-crypto-compare {
+    overflow: hidden;
+    max-width: 67px;
 }

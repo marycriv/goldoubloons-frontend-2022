@@ -54,7 +54,7 @@ function LoginForm(){
                     <TextField
                         required
                         id="outlined-required"
-                        label="Required"
+                        label="Username"
                         onChange={e => setDetails({...details, username: e.target.value})}
                         value={details.username || ""}
                     />
@@ -72,7 +72,8 @@ function LoginForm(){
                     <br/>
                     <br/>
                     <Button 
-                        variant="contained" 
+                        variant="outlined"
+                        disableElevation
                         onClick={async () => {
                             const user = await login();
                             setUser(user);

@@ -33,12 +33,13 @@ function ConfirmationPage(){
                     <p>Success! </p>
                     <br/>
                     <Button 
-                        variant="contained" 
+                        variant="outlined"
+                        disableElevation
                         onClick={() => {
                             navigate(`/${user.user.username}`)
                         }}
                     >
-                        Click here to return to your wallet.
+                        Click here to return to your wallet
                     </Button>
                 </Box>
             </Box>

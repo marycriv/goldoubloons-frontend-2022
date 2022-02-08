@@ -90,7 +90,7 @@ export default function Account() {
                                 navigate('/mike');
                             }}
                         >
-                            <AccountBalanceWalletIcon /> My wallet
+                            <AccountBalanceWalletIcon /> My portfolio
                         </MenuItem>
                         <Divider />
                         {/* <MenuItem>
