@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
+import { CoinsContext } from '../CoinsContext';
 
 import { login } from '../login';
 
@@ -26,11 +27,13 @@ function LoginForm(){
     const API = 'http://localhost:3010/api/v1/';
 
     const { user, setUser } = useContext(UserContext);
+    const { coins, setCoins } = useContext(CoinsContext);
     const [details, setDetails] = useState({username: "", password: ""});
+
     const navigate = useNavigate();
 
 
-    
+
 
     function handleLogin(e, user){
         e.preventDefault(); 
@@ -80,6 +83,7 @@ function LoginForm(){
                         onClick={async () => {
                             const user = await login();
                             setUser(user);
+                            setCoins(user.relationships)
                             navigate(`/${user.user.username}`)
                         }}
                     >Login</Button>

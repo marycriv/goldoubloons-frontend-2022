@@ -12,21 +12,13 @@ function WalletContainer() {
     const { user, setUser } = useContext(UserContext);
     const { coins, setCoins } = useContext(CoinsContext);
 
-    // let [coinsData, getCoinsData] = useState(null);
-
-    useEffect(() => {
-        fetch(API + `coins`)
-        .then(response => response.json())
-        .then(coinsResponse => setCoins(coinsResponse.data))
-    },[])
-
     let [pressingData, getPressingData] = useState(null);
 
     useEffect(() => {
         fetch(API + `pressings`)
         .then(response => response.json())
         .then(pressingResponse => getPressingData(pressingResponse.data))
-    },[])
+    }, [])
 
 
     if (pressingData === null) {
@@ -43,21 +35,12 @@ function WalletContainer() {
       }
 
       if (coins && pressingData) {
-        console.log("pressing data:", pressingData[0].id)
-        const userSpecificCoinsData = coins.filter((coinInfo) => 
-            coinInfo.attributes.user_id === user.user.id
-        )
-        
-        console.log("user's coins", userSpecificCoinsData)
 
-        const userCoinIds = userSpecificCoinsData.map(coinfo => coinfo.attributes.pressing_id.toString())
-        console.log("userCoinIds", userCoinIds)
+         const userCoinIds = coins.map(coinfo => coinfo.pressing_id.toString())
 
-        const userWalletPressingData = pressingData.filter((pressingInfo) => 
-            userCoinIds.includes(pressingInfo.id)
-        )
-
-        console.log("matching pressings", userWalletPressingData)
+         const userWalletPressingData = pressingData.filter((pressingInfo) => 
+             userCoinIds.includes(pressingInfo.id)
+         )
         
         return(
             <>

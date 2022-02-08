@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react"; 
+import React, { useState, useMemo, useEffect } from "react"; 
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import { UserContext } from "./UserContext";
@@ -14,21 +14,21 @@ import ConfirmationPage from "./components/ConfirmationPage";
 
 import './styling.css';
 
-// const useFetch = url => {
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(true);
+const useFetch = url => {
+  const [pressings, setPressings] = useState(null);
+  const [loading, setLoading] = useState(true);
 
 
-//   useEffect(async () => {
-//     const response = await fetch(url);
-//     const data = await response.json();
-//     const [item] = data.results;
-//     setData(item);
-//     setLoading(false);
-//   }, []);
+  useEffect(async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    const pressingsData = data.data;
+    setPressings(pressingsData);
+    setLoading(false);
+  }, []);
 
-//   return { data, loading };
-// };
+  return { pressings, loading };
+};
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,7 +37,7 @@ function App() {
   const userVal = useMemo(() => ({ user, setUser }), [user, setUser]);
   const coinsVal = useMemo(() => ({ coins, setCoins }), [coins, setCoins]);
 
-  // const { data, loading } = useFetch("http://localhost:3010/api/v1/login");
+  const { pressings, loading } = useFetch("http://localhost:3010/api/v1/pressings");
   
 
   return (
@@ -50,7 +50,7 @@ function App() {
           <div className="contents">
             <Routes>
               <Route path={user.user.username} exact element={<ProfileContainer/>}/>
-              <Route path="/main" element={<MainContainer/>}/>
+              <Route path="/main" element={<MainContainer pressings={pressings} />}/>
               <Route path="/success" element={<ConfirmationPage/>}/>
             </Routes>
           </div>

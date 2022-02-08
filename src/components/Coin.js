@@ -27,7 +27,7 @@ function Coin(props) {
     function sellCoin(e, id){
         e.preventDefault();
         console.log(id)
-            
+        
         fetch(API + id, {
             method: 'DELETE',
           })

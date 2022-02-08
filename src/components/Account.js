@@ -27,11 +27,6 @@ export default function Account() {
 
   const { user, setUser } = useContext(UserContext);
 
-  function profileHandler(e){
-      e.preventDefaul();
-      navigate(`/${user.user.username}`)
-  }
-
   return (
     <React.Fragment>
     {!user ? <div>Logged out</div> : 
@@ -87,7 +82,7 @@ export default function Account() {
                 >
                         <MenuItem
                             onClick={ () => {
-                                navigate('/mike');
+                                navigate(`/${user.user.username}`);
                             }}
                         >
                             <AccountBalanceWalletIcon /> My portfolio

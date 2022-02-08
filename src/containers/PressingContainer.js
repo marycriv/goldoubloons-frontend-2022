@@ -6,24 +6,12 @@ import Skeleton from '@mui/material/Skeleton';
 import { UserContext } from "../UserContext";
 import { CoinsContext } from "../CoinsContext";
 
-function PressingContainer() {
-    const API = 'http://localhost:3010/api/v1/'
-
-    let [pressingData, getPressingData] = useState(null);
+function PressingContainer(props) {
 
     const { user, setUser } = useContext(UserContext);
     const { coins, setCoins } = useContext(CoinsContext);
 
-    console.log(coins, pressingData)
-
-    useEffect(() => {
-        fetch(API + `pressings`)
-        .then(response => response.json())
-        .then(pressingResponse => getPressingData(pressingResponse.data))
-    },[])
-
-
-    if (pressingData === null) {
+    if (props.pressingData === null) {
         const n = 27;
         return (
         <Box sx={{ flexGrow: 1 }}>
@@ -36,26 +24,19 @@ function PressingContainer() {
         )
       }
 
-      if (coins && pressingData) {
-        console.log("pressing data:", pressingData[0].id)
-        const userSpecificCoinsData = coins.filter((coinInfo) => 
-            coinInfo.attributes.user_id === user.user.id
-        )
-        console.log("user's coins", userSpecificCoinsData)
+      if (coins && props.pressingData) {
 
-        const userCoinIds = userSpecificCoinsData.map(coinfo => coinfo.attributes.pressing_id.toString())
-        console.log("userCoinIds", userCoinIds)
-        const myArr = pressingData.filter((pressingInfo) => !userCoinIds.includes(pressingInfo.id))
+        const availablePressings = props.pressingData.filter((pressingInfo) => pressingInfo.relationships.coins.data.length < 1)
 
-        console.log("myarr", myArr)
+        console.log("availablePressings", availablePressings)
     
         return(
             <>
                 <h3>Coins for Sale:</h3>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
-                        {myArr.map((e, i) =>
-                            <Pressing variant="rectangular" width={350} height={300} key={i} pressData={myArr[i].attributes} pressId={myArr[i].id} />
+                        {availablePressings.map((e, i) =>
+                            <Pressing variant="rectangular" width={350} height={300} key={i} pressData={availablePressings[i].attributes} pressId={availablePressings[i].id} />
                         )}
                     </Grid>
                 </Box>

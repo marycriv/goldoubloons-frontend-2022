@@ -3,13 +3,13 @@ import PressingContainer from './PressingContainer';
 import WalletContainer from './WalletContainer';
 import LoginFormContainer from './LoginFormContainer';
 
-function MainContainer() {
+function MainContainer(props) {
 
     return(
         <div>
             {/* <LoginFormContainer /> */}
             {/* <WalletContainer /> */}
-            <PressingContainer />
+            <PressingContainer pressingData={props.pressings} />
         </div>
     )
 }
