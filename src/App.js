@@ -14,12 +14,30 @@ import ConfirmationPage from "./components/ConfirmationPage";
 
 import './styling.css';
 
+// const useFetch = url => {
+//   const [data, setData] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
+
+//   useEffect(async () => {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     const [item] = data.results;
+//     setData(item);
+//     setLoading(false);
+//   }, []);
+
+//   return { data, loading };
+// };
+
 function App() {
   const [user, setUser] = useState(null);
   const [coins, setCoins] = useState(null);
 
   const userVal = useMemo(() => ({ user, setUser }), [user, setUser]);
   const coinsVal = useMemo(() => ({ coins, setCoins }), [coins, setCoins]);
+
+  // const { data, loading } = useFetch("http://localhost:3010/api/v1/login");
   
 
   return (

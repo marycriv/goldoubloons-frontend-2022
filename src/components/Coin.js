@@ -33,7 +33,7 @@ function Coin(props) {
           })
             .then(response => response.json())
             .then(coinDestroyResp => console.log(coinDestroyResp))
-        navigate(`/success`);
+            .then(navigate(`/success`))
     }
     
         return(

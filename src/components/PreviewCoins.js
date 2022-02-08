@@ -31,7 +31,7 @@ function PreviewCoins() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div" className="coin-titles">
-                                    Visible to logged in users only
+                                    Signup to see this NFT
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" component="div">
                                     <p>This is an extremely rare coin</p>
@@ -43,10 +43,7 @@ function PreviewCoins() {
                                 <Grid item xs={6}>
                                     <CryptoCompare from="ETH" to="USD" amount={8} apikey={APIkey} />
                                 </Grid>
-                                <Grid item xs={2}>
-                                    <FavoriteBorderIcon />
-                                </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={4}>
                                     Ξ 7
                                 </Grid>
                                 <Grid item xs={2}>
@@ -66,7 +63,7 @@ function PreviewCoins() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div" className="coin-titles">
-                                    Visible to logged in users only
+                                    Signup to see this NFT
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" component="div">
                                     <p>This is an extremely rare coin</p>
@@ -78,10 +75,7 @@ function PreviewCoins() {
                                 <Grid item xs={6}>
                                     <CryptoCompare from="ETH" to="USD" amount={7} apikey={APIkey} />
                                 </Grid>
-                                <Grid item xs={2}>
-                                    <FavoriteBorderIcon />
-                                </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={4}>
                                     Ξ 7
                                 </Grid>
                                 <Grid item xs={2}>
@@ -101,7 +95,7 @@ function PreviewCoins() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div" className="coin-titles">
-                                    Visible to logged in users only
+                                    Signup to see this NFT
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" component="div">
                                     <p>This is an extremely rare coin</p>
@@ -113,10 +107,7 @@ function PreviewCoins() {
                                 <Grid item xs={6}>
                                     <CryptoCompare from="ETH" to="USD" amount={2} apikey={APIkey} />
                                 </Grid>
-                                <Grid item xs={2}>
-                                    <FavoriteBorderIcon />
-                                </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={4}>
                                     Ξ 7
                                 </Grid>
                                 <Grid item xs={2}>

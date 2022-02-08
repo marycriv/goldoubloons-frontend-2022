@@ -47,6 +47,7 @@ function WalletContainer() {
         const userSpecificCoinsData = coins.filter((coinInfo) => 
             coinInfo.attributes.user_id === user.user.id
         )
+        
         console.log("user's coins", userSpecificCoinsData)
 
         const userCoinIds = userSpecificCoinsData.map(coinfo => coinfo.attributes.pressing_id.toString())
