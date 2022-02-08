@@ -15,14 +15,14 @@ function Header() {
                 <div className="header">
                     <Grid container spacing={2}>
                         <Grid item xs={2}>
-                            <img src={process.env.PUBLIC_URL + "logo.png"} width="20px" alt="app-logo" />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <div className="site-title"
+                            <img src={process.env.PUBLIC_URL + "logo.png"} width="32px" alt="app-logo" 
                                 onClick={ () => {
                                     navigate('/main');
                                 }}
-                            >Jeff Golddoubloons</div>
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div className="site-title">Jeff Golddoubloons</div>
                         </Grid>
                         <Grid item xs={4}>
                             <AccountContainer />

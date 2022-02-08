@@ -18,13 +18,14 @@ body {
     margin-left: 40px;
     background-color: white;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .contents {
     padding: 1.2rem;
     margin-top: 4rem;
-    padding-left: 10rem;
-    padding-right: 10rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
 }
 
 .footer {
@@ -53,6 +54,7 @@ h3 {
     text-align: center;
     padding-top: 10px;
     font-weight: 900;
+    font-size: 1.5rem;
 }
 
 .coin-titles {
@@ -67,18 +69,30 @@ h3 {
     padding: 15px;
 }
 
-.welcome-page {
+.welcome-page-header {
     background-color: black;
     color: white;
-    height: 30rem;
+    height: 58rem;
+    background-image: url('../public/bg2.jpeg');
+    background-size: 100%;
+    background-position: center;
 }
 
-.welcome-page h1 {
+.welcome-page-header h1 {
     padding-top: 10rem;
+    padding-left: 5rem;
+}
+.welcome-page-header h2 {
     padding-left: 5rem;
 }
 
 .react-crypto-compare {
     overflow: hidden;
     max-width: 67px;
+}
+
+.welcome-page-coins {
+    padding: 1.2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
 }

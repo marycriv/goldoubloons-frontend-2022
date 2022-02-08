@@ -11,7 +11,8 @@ export default function ProfileContainer() {
 
   return (
     <>
-        <p>Welcome to your account, {user.user.username}</p>
+        <p>Welcome back, <b>{user.user.display_name}</b></p>
+        <p>Take a look at your wallet</p>
         <WalletContainer />
     </>
   );

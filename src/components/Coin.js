@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useContext } from 'react'; 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -12,12 +12,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import CryptoCompare from "react-crypto-compare";
 
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../UserContext';
+
 import '../styling.css';
 
 const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd"
 
 function Coin(props) {
-    console.log(props.coinsOriginal.attributes.for_sale)
+    const API = 'http://localhost:3010/api/v1/coins/';
+    const navigate = useNavigate();
+    const { user, setUser } = useContext(UserContext);
+
+    function sellCoin(e, id){
+        e.preventDefault();
+        console.log(id)
+            
+        fetch(API + id, {
+            method: 'DELETE',
+          })
+            .then(response => response.json())
+            .then(coinDestroyResp => console.log(coinDestroyResp))
+        navigate(`/success`);
+    }
     
         return(
             <Grid item>
@@ -29,7 +46,7 @@ function Coin(props) {
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div" className="coin-titles">
-                                {props.coinDataToCoin.name} | {props.coinsOriginal.attributes.for_sale.toString()}
+                                {props.coinDataToCoin.name}
                             </Typography>
                             <Typography variant="body2" color="text.secondary" component="div">
                                 <p dangerouslySetInnerHTML={{__html: props.coinDataToCoin.description}} />
@@ -38,17 +55,19 @@ function Coin(props) {
                     <Divider />
                     <CardActions>
                         <Grid container spacing={2}>
-                            <Grid item xs={6}>
-                                <CryptoCompare from="ETH" to="USD" amount={10} apikey={APIkey} />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <FavoriteBorderIcon />
+                            <Grid item xs={5}>
+                                <CryptoCompare from="ETH" to="USD" amount={props.coinDataToCoin.cost} apikey={APIkey} />
                             </Grid>
                             <Grid item xs={2}>
                                 Ξ {props.coinDataToCoin.cost}
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid item xs={5}>
                                 <FontAwesomeIcon icon={faEthereum} />
+                                <Button
+                                    onClick={(e) => {
+                                        sellCoin(e, props.coinsOriginal.id)
+                                    }}
+                                >  Sell coin</Button>
                             </Grid>
                         </Grid>
                     </CardActions> 

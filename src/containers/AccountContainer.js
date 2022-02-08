@@ -13,7 +13,7 @@ export default function AccountContainer() {
 
   return (
     <React.Fragment>
-        {!user ? <LoggedOutAccount /> : <Account />}
+        {!user ? null : <Account />}
     </React.Fragment>
   );
 }

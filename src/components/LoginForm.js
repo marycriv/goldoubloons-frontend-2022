@@ -29,6 +29,20 @@ function LoginForm(){
     const [details, setDetails] = useState({username: "", password: ""});
     const navigate = useNavigate();
 
+    function handleLogin(e, user){
+        e.preventDefault(); 
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user })
+        };
+        fetch(API + `login`, requestOptions)
+            .then(response => response.json())
+            .then(loginResponse => loginResponse.user)
+        navigate(`/success`)
+    }
+
     return(
         <>
             <Box sx={style}>
@@ -37,7 +51,6 @@ function LoginForm(){
                     noValidate
                     autoComplete="off"
                 >
-                    <pre>{JSON.stringify(user, null, 2)}</pre>
                     <TextField
                         required
                         id="outlined-required"
@@ -63,7 +76,7 @@ function LoginForm(){
                         onClick={async () => {
                             const user = await login();
                             setUser(user);
-                            navigate('/main');
+                            navigate(`/${user.user.username}`)
                         }}
                     >Login</Button>
                 </Box>

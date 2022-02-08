@@ -6,11 +6,9 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import Button from '@mui/material/Button';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -39,12 +37,7 @@ export default function Account() {
     {!user ? <div>Logged out</div> : 
         <>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                    <Typography sx={{ minWidth: 100 }}>Contact</Typography>
-                    <Typography sx={{ minWidth: 100 }}>
-                            <Button onClick={ () => {
-                            navigate('/mike');
-                        }}>Profile</Button></Typography>
-                    <Tooltip title="Account settings">
+                    <Tooltip title="My portfolio">
                         <IconButton
                             onClick={handleClick}
                             size="small"
@@ -92,19 +85,20 @@ export default function Account() {
                     transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                 >
-                        <MenuItem>
-                            <Avatar /> Profile
-                        </MenuItem>
-                        <MenuItem>
-                            <Avatar /> {JSON.stringify(user, null, 2)}
+                        <MenuItem
+                            onClick={ () => {
+                                navigate('/mike');
+                            }}
+                        >
+                            <AccountBalanceWalletIcon /> My wallet
                         </MenuItem>
                         <Divider />
-                        <MenuItem>
+                        {/* <MenuItem>
                             <ListItemIcon>
                                 <Settings fontSize="small" />
                             </ListItemIcon>
                             Settings
-                        </MenuItem>
+                        </MenuItem> */}
                         <MenuItem onClick={ () => {
                             setUser(null);
                             navigate('/');

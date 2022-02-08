@@ -10,12 +10,16 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import Divider from '@mui/material/Divider';
+import CryptoCompare from "react-crypto-compare";
+
 import { UserContext } from "../UserContext";
 import { CoinsContext } from '../CoinsContext';
 
 import { useNavigate } from 'react-router-dom';
 
 import '../styling.css';
+
+const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd"
 
 function Pressing(props) {
 
@@ -38,7 +42,7 @@ function Pressing(props) {
         fetch(API + `coins`, requestOptions)
         .then(response => response.json())
         .then(purchaseResponse => console.log(purchaseResponse))
-        navigate(`/${user.user.username}`);
+        navigate(`/success`);
     }
 
     console.log("props from pressing card", props)
@@ -62,18 +66,18 @@ function Pressing(props) {
             <Divider />
                     <CardActions>
                         <Grid container spacing={2}>
-                            <Grid item xs={8}>
+                            <Grid item xs={6}>
                                 <Button 
                                     size="small" 
                                     zindex={1}
                                     onClick={(e) => handlePurchase(e)}
                                 ><FontAwesomeIcon icon={faEthereum} /> Buy Now</Button>
                             </Grid>
-                            <Grid item xs={2}>
-                                <FavoriteBorderIcon />
+                            <Grid item xs={4}>
+                                <CryptoCompare from="ETH" to="USD" amount={props.pressData.cost} apikey={APIkey} />
                             </Grid>
                             <Grid item xs={2}>
-                                Ξ 3
+                                Ξ {props.pressData.cost}
                             </Grid>
                         </Grid>
                     </CardActions> 

@@ -10,6 +10,7 @@ import LoginFormContainer from "./containers/LoginFormContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 
 import WelcomePage from "./components/WelcomePage";
+import ConfirmationPage from "./components/ConfirmationPage";
 
 import './styling.css';
 
@@ -32,6 +33,7 @@ function App() {
             <Routes>
               <Route path={user.user.username} exact element={<ProfileContainer/>}/>
               <Route path="/main" element={<MainContainer/>}/>
+              <Route path="/success" element={<ConfirmationPage/>}/>
             </Routes>
           </div>
         </div>

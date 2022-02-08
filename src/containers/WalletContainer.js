@@ -60,7 +60,7 @@ function WalletContainer() {
         
         return(
             <>
-                <h3>Coin Container/Wallet</h3>
+                <h3>Wallet</h3>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         {userWalletPressingData.map((e, i) =>
