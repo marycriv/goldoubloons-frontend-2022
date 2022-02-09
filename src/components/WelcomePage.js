@@ -20,6 +20,13 @@ function WelcomePage() {
                             navigate('/login')
                         }
                     >Login</Button></div>
+                    <div className="welcome-btn"><Button 
+                        disableElevation
+                        variant="outlined" 
+                        onClick={() =>
+                            navigate('/signup')
+                        }
+                    >Signup</Button></div>
                 </div>
                 <div className="welcome-page-coins">
                     <PreviewCoins />

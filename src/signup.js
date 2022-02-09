@@ -1,5 +1,7 @@
-export const login = async (details) => {
-    const API = "http://localhost:3010/api/v1/login"
+export const signup = async (details) => {
+    const API = "http://localhost:3010/api/v1/users"
+
+    console.log({user: details})
 
     const params = {
         method: 'POST',
@@ -7,12 +9,12 @@ export const login = async (details) => {
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ user: details })
+        body: JSON.stringify({user: details})
     };
 
     const response = await fetch(API, params);
     const data = await response.json();
-    const loginInfo = data;
+    const signupInfo = data;
 
-    return { loginInfo }
+    return { signupInfo }
 };

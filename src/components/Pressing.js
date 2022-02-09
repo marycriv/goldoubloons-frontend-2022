@@ -32,11 +32,12 @@ function Pressing(props) {
     function handlePurchase(e, id) {
         e.preventDefault();
         console.log("id", props.pressId)
+        console.log(user.id)
 
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ pressing_id: props.pressId, user_id: user.user.id, for_sale: true })
+            body: JSON.stringify({ pressing_id: props.pressId, user_id: user.id, for_sale: true })
         };
         
         fetch(API + `coins`, requestOptions)

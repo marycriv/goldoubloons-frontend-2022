@@ -11,6 +11,7 @@ import ProfileContainer from "./containers/ProfileContainer";
 
 import WelcomePage from "./components/WelcomePage";
 import ConfirmationPage from "./components/ConfirmationPage";
+import SignupForm from './components/SignupForm';
 
 import './styling.css';
 
@@ -49,7 +50,7 @@ function App() {
             <Header />
           <div className="contents">
             <Routes>
-              <Route path={user.user.username} exact element={<ProfileContainer/>}/>
+              <Route path={user.username} exact element={<ProfileContainer/>}/>
               <Route path="/main" element={<MainContainer pressings={pressings} />}/>
               <Route path="/success" element={<ConfirmationPage/>}/>
             </Routes>
@@ -60,6 +61,7 @@ function App() {
                 <Routes>
                   <Route path="/" exact element={<WelcomePage />} />
                   <Route path="/login" exact element={<LoginFormContainer/>}/>
+                  <Route path="/signup" element={<SignupForm />}/>
                 </Routes>
           </div>}
         </CoinsContext.Provider>

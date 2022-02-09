@@ -17,7 +17,7 @@ export default function ProfileContainer() {
   return (
     <>
       <div className="user-profile">
-        <p>Welcome back, <b>{user.user.display_name}</b></p>
+        <p>Welcome back, <b>{user.display_name}</b></p>
         <div className="marketplace-button">
           <Button
             variant="contained"

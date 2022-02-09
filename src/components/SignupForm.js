@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 import { CoinsContext } from '../CoinsContext';
 
-import { login } from '../login';
+import { signup } from '../signup';
 
 const style = {
     position: 'absolute',
@@ -28,7 +28,7 @@ function LoginForm(){
 
     const { user, setUser } = useContext(UserContext);
     const { coins, setCoins } = useContext(CoinsContext);
-    const [details, setDetails] = useState({username: "", password: ""});
+    const [details, setDetails] = useState({username: "", display_name:"", password: "", icon: "", wallet: 1000});
 
     const navigate = useNavigate();
 
@@ -42,10 +42,19 @@ function LoginForm(){
                 >
                     <TextField
                         required
-                        id="outlined-required"
+                        id="outlined-required-username"
                         label="Username"
                         onChange={e => setDetails({...details, username: e.target.value})}
                         value={details.username || ""}
+                    />
+                    <br/>
+                    <br/>
+                    <TextField
+                        required
+                        id="outlined-required-display-name"
+                        label="Display name"
+                        onChange={e => setDetails({...details, display_name: e.target.value})}
+                        value={details.display_name || ""}
                     />
                     <br/>
                     <br/>
@@ -60,17 +69,35 @@ function LoginForm(){
                     />
                     <br/>
                     <br/>
+                    <TextField
+                        required
+                        id="outlined-required-icon"
+                        label="Icon"
+                        onChange={e => setDetails({...details, icon: e.target.value})}
+                        value={details.icon || ""}
+                    />
+                    <br/>
+                    <br/>
+                    <TextField
+                        required
+                        id="outlined-required-wallet"
+                        label="$$$"
+                        onChange={e => setDetails({...details, wallet: e.target.value})}
+                        value={details.wallet || ""}
+                    />
+                    <br/>
+                    <br/>
                     <Button 
                         variant="outlined"
                         disableElevation
                         onClick={async () => {
-                            const loginInfo = await login(details);
-                            console.log("LOGIN INFO", loginInfo.loginInfo.user)
-                            setUser(loginInfo.loginInfo.user);
-                            setCoins(loginInfo.loginInfo.relationships)
-                            navigate(`/main`)
+                            const signupInfo = await signup(details);
+                            console.log("signup INFO", signupInfo)
+                            // setUser(signupInfo.signupInfo.user);
+                            // setCoins(signupInfo.signupInfo.relationships)
+                            navigate(`/`)
                         }}
-                    >Login</Button>
+                    >Signup</Button>
                 </Box>
             </Box>
         </>

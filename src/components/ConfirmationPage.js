@@ -36,7 +36,7 @@ function ConfirmationPage(){
                         variant="outlined"
                         disableElevation
                         onClick={() => {
-                            navigate(`/${user.user.username}`)
+                            navigate(`/${user.username}`)
                         }}
                     >
                         Click here to return to your wallet

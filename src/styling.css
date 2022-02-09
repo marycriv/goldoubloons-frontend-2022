@@ -13,7 +13,7 @@ body {
     padding-bottom: 5px;
 }
 
-.header img {
+.app-logo {
     padding: 5px;
     margin-left: 40px;
     background-color: white;
@@ -108,4 +108,15 @@ h3 {
 .marketplace-button button {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.user-icon img {
+    padding: 5px;
+    margin-left: 40px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
 }

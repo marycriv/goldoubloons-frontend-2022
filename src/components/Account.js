@@ -14,6 +14,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../UserContext';
 
+import { logout } from '../logout';
+
 export default function Account() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -40,8 +42,9 @@ export default function Account() {
                             aria-controls={open ? 'account-menu' : undefined}
                             aria-haspopup="true"
                             aria-expanded={open ? 'true' : undefined}
+                            className="user-icon"
                         >
-                            <img src={user.user.icon} width="32px" alt="boop" />
+                            <img src={user.icon} alt={user.username} />
                             {/* <Avatar sx={{ width: 32, height: 32 }}>M</Avatar> */}
                         </IconButton>
                     </Tooltip>
@@ -82,7 +85,7 @@ export default function Account() {
                 >
                         <MenuItem
                             onClick={ () => {
-                                navigate(`/${user.user.username}`);
+                                navigate(`/${user.username}`);
                             }}
                         >
                             <AccountBalanceWalletIcon /> My portfolio
@@ -94,7 +97,9 @@ export default function Account() {
                             </ListItemIcon>
                             Settings
                         </MenuItem> */}
-                        <MenuItem onClick={ () => {
+                        <MenuItem onClick={async () => {
+                            const logoutResp = await logout();
+                            console.log("LOGOUT STAT", logoutResp)
                             setUser(null);
                             navigate('/');
                         }} >

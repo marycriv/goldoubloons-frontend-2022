@@ -15,7 +15,12 @@ function Header() {
                 <div className="header">
                     <Grid container spacing={2}>
                         <Grid item xs={2}>
-                            <img src={process.env.PUBLIC_URL + "logo.png"} width="32px" alt="app-logo" 
+
+                            <img 
+                                src={process.env.PUBLIC_URL + "logo.png"} 
+                                width="32px" 
+                                alt="app-logo" 
+                                className="app-logo"
                                 onClick={ () => {
                                     navigate('/main');
                                 }}
