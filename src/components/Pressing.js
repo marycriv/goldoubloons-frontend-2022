@@ -37,12 +37,12 @@ function Pressing(props) {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ pressing_id: props.pressId, user_id: user.id, for_sale: true })
+            body: JSON.stringify({pressing_id: props.pressId, user_id: user.id, for_sale: true})
         };
         
         fetch(API + `coins`, requestOptions)
-        .then(response => response.json())
-        .then(purchaseResponse => console.log(purchaseResponse))
+            .then(response => response.json())
+            .then(purchaseResponse => console.log(purchaseResponse))
         navigate(`/success`);
     }
 

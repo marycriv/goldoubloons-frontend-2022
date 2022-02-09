@@ -67,7 +67,7 @@ function LoginForm(){
                             const loginInfo = await login(details);
                             console.log("LOGIN INFO", loginInfo.loginInfo.user)
                             setUser(loginInfo.loginInfo.user);
-                            setCoins(loginInfo.loginInfo.relationships)
+                            setCoins(loginInfo.loginInfo.relationships);
                             navigate(`/main`)
                         }}
                     >Login</Button>

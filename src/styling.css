@@ -69,33 +69,6 @@ h3 {
     padding: 15px;
 }
 
-.welcome-page-header {
-    background-color: black;
-    color: white;
-    height: 58rem;
-    background-image: url('../public/bg2.jpeg');
-    background-size: 100%;
-    background-position: center;
-}
-
-.welcome-page-header h1 {
-    padding-top: 10rem;
-    padding-left: 5rem;
-}
-.welcome-page-header h2 {
-    padding-left: 5rem;
-}
-
-.welcome-btn {
-    padding-left: 5rem;
-}
-
-.welcome-page-coins {
-    padding: 1.2rem;
-    padding-left: 15rem;
-    padding-right: 15rem;
-}
-
 .user-profile b {
     text-transform: capitalize;
 }
@@ -119,4 +92,47 @@ h3 {
     width: 32px;
     height: 32px;
     object-fit: cover;
+}
+
+
+
+/* Welcome Page Component */
+
+.welcome-page-header {
+    background-color: black;
+    color: white;
+    height: 58rem;
+    background-image: url('../public/bg2.jpeg');
+    background-size: 100%;
+    background-position: center;
+}
+
+.welcome-page-header h1 {
+    padding-top: 10rem;
+    padding-left: 5rem;
+}
+.welcome-page-header h2 {
+    padding-left: 5rem;
+}
+
+.welcome-btns {
+    display: flex;
+    padding: 5px;
+}
+
+.login-btn {
+    padding-left: 5rem;
+    margin: 5px;
+}
+
+.signup-btn {
+    margin: 5px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.welcome-page-coins {
+    padding: 1.2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
 }

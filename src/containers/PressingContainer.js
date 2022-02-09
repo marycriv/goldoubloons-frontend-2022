@@ -11,7 +11,7 @@ function PressingContainer(props) {
     const { user, setUser } = useContext(UserContext);
     const { coins, setCoins } = useContext(CoinsContext);
 
-    if (props.pressingData === null) {
+    if (props.pressings === null) {
         const n = 27;
         return (
         <Box sx={{ flexGrow: 1 }}>
@@ -24,9 +24,9 @@ function PressingContainer(props) {
         )
       }
 
-      if (coins && props.pressingData) {
+      if (coins && props.pressings) {
 
-        const availablePressings = props.pressingData.filter((pressingInfo) => pressingInfo.relationships.coins.data.length < 1)
+        const availablePressings = props.pressings.filter((pressingInfo) => pressingInfo.relationships.coins.data.length < 1)
 
         console.log("availablePressings", availablePressings)
     

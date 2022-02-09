@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { UserContext } from "./UserContext";
 import { CoinsContext } from "./CoinsContext";
 
-import MainContainer from './containers/MainContainer';
 import Header from './components/Header';
 import LoginFormContainer from "./containers/LoginFormContainer";
 import ProfileContainer from "./containers/ProfileContainer";
@@ -12,6 +11,8 @@ import ProfileContainer from "./containers/ProfileContainer";
 import WelcomePage from "./components/WelcomePage";
 import ConfirmationPage from "./components/ConfirmationPage";
 import SignupForm from './components/SignupForm';
+
+import PressingContainer from "./containers/PressingContainer";
 
 import './styling.css';
 
@@ -39,7 +40,6 @@ function App() {
   const coinsVal = useMemo(() => ({ coins, setCoins }), [coins, setCoins]);
 
   const { pressings, loading } = useFetch("http://localhost:3010/api/v1/pressings");
-  
 
   return (
     <Router>
@@ -51,7 +51,7 @@ function App() {
           <div className="contents">
             <Routes>
               <Route path={user.username} exact element={<ProfileContainer/>}/>
-              <Route path="/main" element={<MainContainer pressings={pressings} />}/>
+              <Route path="/main" element={<PressingContainer pressings={pressings} />}/>
               <Route path="/success" element={<ConfirmationPage/>}/>
             </Routes>
           </div>

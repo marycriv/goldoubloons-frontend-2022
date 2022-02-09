@@ -13,20 +13,23 @@ function WelcomePage() {
             <>
                 <div className="welcome-page-header">
                     <h1>Welcome to Golddoubloons!</h1>
-                    <div className="welcome-btn"><Button 
-                        disableElevation
-                        variant="contained" 
-                        onClick={() =>
-                            navigate('/login')
-                        }
-                    >Login</Button></div>
-                    <div className="welcome-btn"><Button 
-                        disableElevation
-                        variant="outlined" 
-                        onClick={() =>
-                            navigate('/signup')
-                        }
-                    >Signup</Button></div>
+                    <div className="welcome-btns">
+                        <div className="login-btn">
+                        <Button 
+                            disableElevation
+                            variant="contained" 
+                            onClick={() =>
+                                navigate('/login')
+                            }
+                        >Login</Button></div>
+                        <div className="signup-btn"><Button 
+                            disableElevation
+                            variant="outlined" 
+                            onClick={() =>
+                                navigate('/signup')
+                            }
+                        >Signup</Button></div>
+                    </div>
                 </div>
                 <div className="welcome-page-coins">
                     <PreviewCoins />
