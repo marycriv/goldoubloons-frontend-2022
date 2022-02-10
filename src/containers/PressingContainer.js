@@ -5,13 +5,15 @@ import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 import { UserContext } from "../UserContext";
 import { CoinsContext } from "../CoinsContext";
+import { PressingsContext } from "../PressingsContext";
 
-function PressingContainer(props) {
+function PressingContainer() {
 
     const { user, setUser } = useContext(UserContext);
     const { coins, setCoins } = useContext(CoinsContext);
+    const { pressings, setPressings } = useContext(PressingsContext);
 
-    if (props.pressings === null) {
+    if (pressings === null) {
         const n = 27;
         return (
         <Box sx={{ flexGrow: 1 }}>
@@ -24,9 +26,9 @@ function PressingContainer(props) {
         )
       }
 
-      if (coins && props.pressings) {
+      if (coins && pressings) {
 
-        const availablePressings = props.pressings.filter((pressingInfo) => pressingInfo.relationships.coins.data.length < 1)
+        const availablePressings = pressings.filter((pressingInfo) => pressingInfo.relationships.coins.data.length < 1)
 
         console.log("availablePressings", availablePressings)
     

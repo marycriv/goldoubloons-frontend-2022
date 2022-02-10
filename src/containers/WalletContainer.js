@@ -5,23 +5,17 @@ import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 import { UserContext } from "../UserContext";
 import { CoinsContext } from "../CoinsContext";
+import { PressingsContext } from "../PressingsContext";
 
 function WalletContainer() {
     const API = 'http://localhost:3010/api/v1/'
 
     const { user, setUser } = useContext(UserContext);
     const { coins, setCoins } = useContext(CoinsContext);
-
-    let [pressingData, getPressingData] = useState(null);
-
-    useEffect(() => {
-        fetch(API + `pressings`)
-        .then(response => response.json())
-        .then(pressingResponse => getPressingData(pressingResponse.data))
-    }, [])
+    const { pressings, setPressings } = useContext(PressingsContext);
 
 
-    if (pressingData === null) {
+    if (pressings === null) {
         const n = 27;
         return (
         <Box sx={{ flexGrow: 1 }}>
@@ -34,11 +28,11 @@ function WalletContainer() {
         )
       }
 
-      if (coins && pressingData) {
+      if (coins && pressings) {
 
          const userCoinIds = coins.map(coinfo => coinfo.pressing_id.toString())
 
-         const userWalletPressingData = pressingData.filter((pressingInfo) => 
+         const userWalletPressingData = pressings.filter((pressingInfo) => 
              userCoinIds.includes(pressingInfo.id)
          )
         

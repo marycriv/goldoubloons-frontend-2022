@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
+import Settings from '@mui/icons-material/Settings';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -91,12 +92,15 @@ export default function Account() {
                             <AccountBalanceWalletIcon /> My portfolio
                         </MenuItem>
                         <Divider />
-                        {/* <MenuItem>
+                        <MenuItem 
+                            onClick={ () => {
+                            navigate(`/${user.username}/edit`);
+                        }}>
                             <ListItemIcon>
                                 <Settings fontSize="small" />
                             </ListItemIcon>
-                            Settings
-                        </MenuItem> */}
+                            Update profile
+                        </MenuItem>
                         <MenuItem onClick={async () => {
                             const logoutResp = await logout();
                             console.log("LOGOUT STAT", logoutResp)

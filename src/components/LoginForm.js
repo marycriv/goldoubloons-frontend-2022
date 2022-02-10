@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 import { CoinsContext } from '../CoinsContext';
+import { PressingsContext } from '../PressingsContext';
 
 import { login } from '../login';
 
@@ -28,7 +29,9 @@ function LoginForm(){
 
     const { user, setUser } = useContext(UserContext);
     const { coins, setCoins } = useContext(CoinsContext);
-    const [details, setDetails] = useState({username: "", password: ""});
+    const { pressings, setPressings } = useContext(PressingsContext);
+
+    const [details, setDetails] = useState({username: "mike", password: "password"});
 
     const navigate = useNavigate();
 
@@ -65,9 +68,10 @@ function LoginForm(){
                         disableElevation
                         onClick={async () => {
                             const loginInfo = await login(details);
-                            console.log("LOGIN INFO", loginInfo.loginInfo.user)
+                            console.log("LOGIN INFO", loginInfo.loginInfo.user, loginInfo.pressingInfo)
                             setUser(loginInfo.loginInfo.user);
                             setCoins(loginInfo.loginInfo.relationships);
+                            setPressings(loginInfo.pressingInfo)
                             navigate(`/main`)
                         }}
                     >Login</Button>

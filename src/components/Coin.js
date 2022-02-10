@@ -15,6 +15,8 @@ import CryptoCompare from "react-crypto-compare";
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 
+import { sellCoin } from '../sellCoin';
+
 import '../styling.css';
 
 const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd"
@@ -23,18 +25,6 @@ function Coin(props) {
     const API = 'http://localhost:3010/api/v1/coins/';
     const navigate = useNavigate();
     const { user, setUser } = useContext(UserContext);
-
-    function sellCoin(e, id){
-        e.preventDefault();
-        console.log(id)
-        
-        fetch(API + id, {
-            method: 'DELETE',
-          })
-            .then(response => response.json())
-            .then(coinDestroyResp => console.log(coinDestroyResp))
-            .then(navigate(`/success`))
-    }
     
         return(
             <Grid item>
@@ -64,8 +54,11 @@ function Coin(props) {
                             <Grid item xs={5}>
                                 <FontAwesomeIcon icon={faEthereum} />
                                 <Button
-                                    onClick={(e) => {
-                                        sellCoin(e, props.coinsOriginal.id)
+                                    onClick={async () => {
+                                        const coinPurchaseInfo = await sellCoin(props.coinsOriginal.id);
+                                        console.log("PURCHASE INFO", coinPurchaseInfo)
+                                        // setCoins(coinsPostInfo);
+                                        navigate(`/main`)
                                     }}
                                 >  Sell coin</Button>
                             </Grid>

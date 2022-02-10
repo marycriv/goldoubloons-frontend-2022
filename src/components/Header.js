@@ -14,7 +14,7 @@ function Header() {
             <>
                 <div className="header">
                     <Grid container spacing={2}>
-                        <Grid item xs={2}>
+                        <Grid item xs={4}>
 
                             <img 
                                 src={process.env.PUBLIC_URL + "logo.png"} 
@@ -22,11 +22,11 @@ function Header() {
                                 alt="app-logo" 
                                 className="app-logo"
                                 onClick={ () => {
-                                    navigate('/main');
+                                    navigate('/');
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={4}>
                             <div className="site-title">Jeff Golddoubloons</div>
                         </Grid>
                         <Grid item xs={4}>

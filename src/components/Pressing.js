@@ -14,8 +14,11 @@ import CryptoCompare from "react-crypto-compare";
 
 import { UserContext } from "../UserContext";
 import { CoinsContext } from '../CoinsContext';
+import { PressingsContext } from '../PressingsContext';
 
 import { useNavigate } from 'react-router-dom';
+
+import { buyCoin } from '../buyCoin';
 
 import '../styling.css';
 
@@ -28,25 +31,9 @@ function Pressing(props) {
 
     const { user, setUser } = useContext(UserContext);
     const { coins, setCoins } = useContext(CoinsContext);
+    const { pressings, setPressings } = useContext(PressingsContext);
 
-    function handlePurchase(e, id) {
-        e.preventDefault();
-        console.log("id", props.pressId)
-        console.log(user.id)
-
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({pressing_id: props.pressId, user_id: user.id, for_sale: true})
-        };
-        
-        fetch(API + `coins`, requestOptions)
-            .then(response => response.json())
-            .then(purchaseResponse => console.log(purchaseResponse))
-        navigate(`/success`);
-    }
-
-    console.log("props from pressing card", props)
+    // console.log("props from pressing card", props)
 
         return(
             <Grid item>
@@ -71,7 +58,13 @@ function Pressing(props) {
                                 <Button 
                                     size="small" 
                                     zindex={1}
-                                    onClick={(e) => handlePurchase(e)}
+                                    onClick={async () => {
+                                        const buyInfo = await buyCoin({pressing_id: props.pressId, user_id: user.id, for_sale: true}, user.id);
+                                        setCoins(buyInfo.coinsInfo)
+                                        setUser(buyInfo.userInfo)
+                                        setPressings(buyInfo.pressingInfo)
+                                        navigate(`/success`)
+                                    }}
                                 ><FontAwesomeIcon icon={faEthereum} /> Buy Now</Button>
                             </Grid>
                             <Grid item xs={4}>
