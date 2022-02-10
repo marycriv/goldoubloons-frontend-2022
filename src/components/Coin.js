@@ -13,9 +13,9 @@ import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import CryptoCompare from "react-crypto-compare";
 
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../UserContext';
+import { UserContext } from '../contexts/UserContext';
 
-import { sellCoin } from '../sellCoin';
+import { sellCoin } from '../actions/sellCoin';
 
 import '../styling.css';
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button } from '@mui/material';
 
-import { UserContext } from '../UserContext';
+import { UserContext } from '../contexts/UserContext';
 
 import WalletContainer from './WalletContainer';
 

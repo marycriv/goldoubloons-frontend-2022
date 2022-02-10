@@ -5,10 +5,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../UserContext';
-import { CoinsContext } from '../CoinsContext';
+import { UserContext } from '../contexts/UserContext';
+import { CoinsContext } from '../contexts/CoinsContext';
 
-import { signup } from '../signup';
+import { signup } from '../actions/signup';
 
 const style = {
     position: 'absolute',

@@ -1,9 +1,9 @@
 import React, { useState, useMemo, useEffect } from "react"; 
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
-import { UserContext } from "./UserContext";
-import { CoinsContext } from "./CoinsContext";
-import { PressingsContext } from "./PressingsContext";
+import { UserContext } from "./contexts/UserContext";
+import { CoinsContext } from "./contexts/CoinsContext";
+import { PressingsContext } from "./contexts/PressingsContext";
 
 import Header from './components/Header';
 import LoginFormContainer from "./containers/LoginFormContainer";

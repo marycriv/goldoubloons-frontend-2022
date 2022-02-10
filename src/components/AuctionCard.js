@@ -11,13 +11,13 @@ import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import Divider from '@mui/material/Divider';
 import CryptoCompare from "react-crypto-compare";
 
-import { UserContext } from "../UserContext";
-import { CoinsContext } from '../CoinsContext';
-import { PressingsContext } from '../PressingsContext';
+import { UserContext } from "../contexts/UserContext";
+import { CoinsContext } from '../contexts/CoinsContext';
+import { PressingsContext } from '../contexts/PressingsContext';
 
 import { useNavigate } from 'react-router-dom';
 
-import { buyCoin } from '../buyCoin';
+import { buyCoin } from '../actions/buyCoin';
 
 import '../styling.css';
 

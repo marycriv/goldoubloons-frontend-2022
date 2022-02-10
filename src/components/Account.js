@@ -13,9 +13,9 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 
 import { useNavigate } from 'react-router-dom';
 
-import { UserContext } from '../UserContext';
+import { UserContext } from '../contexts/UserContext';
 
-import { logout } from '../logout';
+import { logout } from '../actions/logout';
 
 export default function Account() {
   const [anchorEl, setAnchorEl] = React.useState(null);

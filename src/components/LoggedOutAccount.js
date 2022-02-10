@@ -12,7 +12,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../UserContext';
+import { UserContext } from '../contexts/UserContext';
 
 export default function LoggedOutAccount() {
   const [anchorEl, setAnchorEl] = React.useState(null);
