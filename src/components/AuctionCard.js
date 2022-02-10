@@ -17,7 +17,7 @@ import { PressingsContext } from '../contexts/PressingsContext';
 
 import { useNavigate } from 'react-router-dom';
 
-import { buyCoin } from '../actions/buyCoin';
+import { auctionPurchase } from '../actions/auctionPurchase';
 
 import '../styling.css';
 
@@ -48,20 +48,20 @@ function AuctionCard(props) {
                             <p dangerouslySetInnerHTML={{__html: props.pressData.description}} />
                         </Typography>
                 </CardContent>
-            <Divider />
+                    <Divider />
                     <CardActions>
                         <Grid container spacing={2}>
                             <Grid item xs={6}>
                                 {props.usrId == user.id ? <b>You own this coin!</b> : <Button 
                                     size="small" 
                                     zindex={1}
-                                    // onClick={async () => {
-                                    //     const buyInfo = await buyCoin({pressing_id: props.pressId, user_id: user.id, for_sale: true}, user.id);
-                                    //     setCoins(buyInfo.coinsInfo)
-                                    //     setUser(buyInfo.userInfo)
-                                    //     setPressings(buyInfo.pressingInfo)
-                                    //     navigate(`/${user.username}`)
-                                    // }}
+                                    onClick={async () => {
+                                        const auctionInfo = await auctionPurchase({pressing_id: props.pressId, user_id: user.id, for_sale: false}, user.id, props.pressData.coins[0].id);
+                                        setCoins(auctionInfo.coinsInfo)
+                                        setUser(auctionInfo.userInfo)
+                                        setPressings(auctionInfo.pressingInfo)
+                                        navigate(`/${user.username}`)
+                                    }}
                                 ><FontAwesomeIcon icon={faEthereum} /> Buy Now</Button>}
                             </Grid>
                             <Grid item xs={4}>

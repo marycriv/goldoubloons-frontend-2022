@@ -1,13 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../contexts/UserContext';
-import { CoinsContext } from '../contexts/CoinsContext';
-
 import { signup } from '../actions/signup';
 
 const style = {
@@ -24,12 +21,7 @@ const style = {
 
 function LoginForm(){
 
-    const API = 'http://localhost:3010/api/v1/';
-
-    const { user, setUser } = useContext(UserContext);
-    const { coins, setCoins } = useContext(CoinsContext);
     const [details, setDetails] = useState({username: "", display_name:"", password: "", icon: "", wallet: 1000});
-
     const navigate = useNavigate();
 
     return(

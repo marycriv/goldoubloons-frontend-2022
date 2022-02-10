@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import Pressing from '../components/Pressing';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
-import { UserContext } from "../contexts/UserContext";
 import { CoinsContext } from "../contexts/CoinsContext";
 import { PressingsContext } from "../contexts/PressingsContext";
 
 function PressingContainer() {
 
-    const { user, setUser } = useContext(UserContext);
-    const { coins, setCoins } = useContext(CoinsContext);
-    const { pressings, setPressings } = useContext(PressingsContext);
+    const { coins } = useContext(CoinsContext);
+    const { pressings } = useContext(PressingsContext);
 
     if (pressings === null) {
         const n = 27;

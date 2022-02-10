@@ -20,16 +20,15 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4
+    p: 4, 
+    outline: 0
   };
 
 function LoginForm(){
 
-    const API = 'http://localhost:3010/api/v1/';
-
-    const { user, setUser } = useContext(UserContext);
-    const { coins, setCoins } = useContext(CoinsContext);
-    const { pressings, setPressings } = useContext(PressingsContext);
+    const { setUser } = useContext(UserContext);
+    const { setCoins } = useContext(CoinsContext);
+    const { setPressings } = useContext(PressingsContext);
 
     const [details, setDetails] = useState({username: "mike", password: "password"});
 

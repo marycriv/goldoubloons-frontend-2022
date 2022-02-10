@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 
-import { UserContext } from "../contexts/UserContext";
 import { CoinsContext } from "../contexts/CoinsContext";
 import { PressingsContext } from "../contexts/PressingsContext";
 
@@ -12,9 +11,8 @@ import '../styling.css';
 
 export default function AuctionContainer(){
 
-    const { user, setUser } = useContext(UserContext);
-    const { coins, setCoins } = useContext(CoinsContext);
-    const { pressings, setPressings } = useContext(PressingsContext);
+    const { coins } = useContext(CoinsContext);
+    const { pressings } = useContext(PressingsContext);
 
     if (pressings === null) {
         const n = 9;
@@ -32,8 +30,7 @@ export default function AuctionContainer(){
       if (coins && pressings) {
 
         const takenPressings = pressings.filter((pressingInfo) => pressingInfo.relationships.coins.data.length >= 1 && pressingInfo.attributes.coins[0].for_sale);
-        console.log(pressings[0].attributes.coins[0].for_sale)
-    
+
         return(
             <>
                 <h3>Current Auctions:</h3>

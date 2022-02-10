@@ -73,6 +73,13 @@ h3 {
     text-transform: capitalize;
 }
 
+.profile-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
 .react-crypto-compare {
     overflow: hidden;
     max-width: 67px;
@@ -110,9 +117,11 @@ h3 {
 .welcome-page-header h1 {
     padding-top: 10rem;
     padding-left: 5rem;
+    color: black;
 }
 .welcome-page-header h2 {
     padding-left: 5rem;
+    color: darkslategrey;
 }
 
 .welcome-btns {

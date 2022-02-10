@@ -12,7 +12,8 @@ function WelcomePage() {
         return(
             <>
                 <div className="welcome-page-header">
-                    <h1>Welcome to Golddoubloons!</h1>
+                    <h1>An NFT marketplace that meets your needs</h1>
+                    <h2>Discover, collect, and sell your own Golddoubloons right now</h2>
                     <div className="welcome-btns">
                         <div className="login-btn">
                         <Button 

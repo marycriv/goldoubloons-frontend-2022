@@ -1,19 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react'; 
+import React, { useContext } from 'react'; 
 import Coin from '../components/Coin';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
-import { UserContext } from "../contexts/UserContext";
 import { CoinsContext } from "../contexts/CoinsContext";
 import { PressingsContext } from "../contexts/PressingsContext";
 
 function WalletContainer() {
-    const API = 'http://localhost:3010/api/v1/'
 
-    const { user, setUser } = useContext(UserContext);
-    const { coins, setCoins } = useContext(CoinsContext);
-    const { pressings, setPressings } = useContext(PressingsContext);
-
+    const { coins } = useContext(CoinsContext);
+    const { pressings } = useContext(PressingsContext);
 
     if (pressings === null) {
         const n = 27;
@@ -32,7 +28,7 @@ function WalletContainer() {
 
          const userCoinIds = coins.map(coinfo => coinfo.pressing_id.toString())
 
-         const userWalletPressingData = pressings.filter((pressingInfo) => 
+         const userWalletData = pressings.filter((pressingInfo) => 
              userCoinIds.includes(pressingInfo.id)
          )
         
@@ -41,8 +37,8 @@ function WalletContainer() {
                 <h3>NFT Portfolio</h3>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
-                        {userWalletPressingData.map((e, i) =>
-                            <Coin variant="rectangular" width={350} height={300} key={i} coinDataToCoin={userWalletPressingData[i].attributes} coinsOriginal={coins[i]} />
+                        {userWalletData.map((e, i) =>
+                            <Coin variant="rectangular" width={350} height={300} key={i} coinDataToCoin={userWalletData[i].attributes} coinsOriginal={coins[i]} />
                         )}
                     </Grid>
                 </Box>

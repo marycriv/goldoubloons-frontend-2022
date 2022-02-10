@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
-import { CoinsContext } from '../contexts/CoinsContext';
 
 import { update } from '../actions/update';
 
@@ -24,10 +23,7 @@ const style = {
 
 function UpdateForm(){
 
-    const API = 'http://localhost:3010/api/v1/';
-
     const { user, setUser } = useContext(UserContext);
-    const { coins, setCoins } = useContext(CoinsContext);
     const [details, setDetails] = useState({username: user.username, display_name: user.display_name, icon: user.icon, wallet: user.wallet});
 
     const navigate = useNavigate();

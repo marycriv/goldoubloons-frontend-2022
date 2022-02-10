@@ -6,7 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import Divider from '@mui/material/Divider';
@@ -26,14 +25,11 @@ const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd
 
 function Pressing(props) {
 
-    const API = 'http://localhost:3010/api/v1/';
     const navigate = useNavigate();
 
     const { user, setUser } = useContext(UserContext);
-    const { coins, setCoins } = useContext(CoinsContext);
-    const { pressings, setPressings } = useContext(PressingsContext);
-
-    // console.log("props from pressing card", props)
+    const { setCoins } = useContext(CoinsContext);
+    const { setPressings } = useContext(PressingsContext);
 
         return(
             <Grid item>
@@ -59,7 +55,7 @@ function Pressing(props) {
                                     size="small" 
                                     zindex={1}
                                     onClick={async () => {
-                                        const buyInfo = await buyCoin({pressing_id: props.pressId, user_id: user.id, for_sale: true}, user.id);
+                                        const buyInfo = await buyCoin({pressing_id: props.pressId, user_id: user.id, for_sale: false}, user.id);
                                         setCoins(buyInfo.coinsInfo)
                                         setUser(buyInfo.userInfo)
                                         setPressings(buyInfo.pressingInfo)
