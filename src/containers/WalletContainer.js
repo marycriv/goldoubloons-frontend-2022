@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'; 
-import Coin from '../components/Coin';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 import { CoinsContext } from "../contexts/CoinsContext";
 import { PressingsContext } from "../contexts/PressingsContext";
+import ReusableCard from '../components/ReusableCard';
 
 function WalletContainer() {
 
@@ -38,7 +38,15 @@ function WalletContainer() {
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         {userWalletData.map((e, i) =>
-                            <Coin variant="rectangular" width={350} height={300} key={i} coinDataToCoin={userWalletData[i].attributes} coinsOriginal={coins[i]} />
+                            <ReusableCard 
+                            variant="rectangular" 
+                            width={350} 
+                            height={300} 
+                            key={i} 
+                            pressingData={userWalletData[i].attributes} 
+                            originalCoin={coins[i]} 
+                            location={"wallet"}
+                            />
                         )}
                     </Grid>
                 </Box>

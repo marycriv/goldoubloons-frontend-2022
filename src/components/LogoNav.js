@@ -1,21 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
-import Settings from '@mui/icons-material/Settings';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import Logout from '@mui/icons-material/Logout';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import GavelIcon from '@mui/icons-material/Gavel';
+import PaidIcon from '@mui/icons-material/Paid';
+import HomeIcon from '@mui/icons-material/Home';
 
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../contexts/UserContext';
 
-import { logout } from '../actions/logout';
-
-export default function Account() {
+export default function LogoNav() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -25,8 +22,6 @@ export default function Account() {
     setAnchorEl(null);
   };
   const navigate = useNavigate();
-
-  const { user, setUser } = useContext(UserContext);
 
   return (
     <React.Fragment>
@@ -41,7 +36,7 @@ export default function Account() {
                             aria-expanded={open ? 'true' : undefined}
                             className="user-icon"
                         >
-                            <img src={user.icon} alt={user.username} />
+                            <img src={process.env.PUBLIC_URL + "logo.png"} alt="logo" />
                         </IconButton>
                     </Tooltip>
                 </Box><Menu
@@ -79,33 +74,34 @@ export default function Account() {
                     transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                 >
-                        <MenuItem
+                        <MenuItem 
                             onClick={ () => {
-                                navigate(`/${user.username}`);
-                            }}
-                        >
-                            <AccountBalanceWalletIcon /> My portfolio
+                            navigate(`/`);
+                        }}>
+                            <ListItemIcon>
+                                <HomeIcon fontSize="small" />
+                            </ListItemIcon>
+                            Home
                         </MenuItem>
                         <Divider />
                         <MenuItem 
                             onClick={ () => {
-                            navigate(`/${user.username}/edit`);
+                            navigate(`/main`);
                         }}>
                             <ListItemIcon>
-                                <Settings fontSize="small" />
+                                <PaidIcon fontSize="small" />
                             </ListItemIcon>
-                            Update profile
+                            Pressings Container
                         </MenuItem>
-                        <MenuItem onClick={async () => {
-                            const logoutResp = await logout();
-                            console.log("LOGOUT STAT", logoutResp)
-                            setUser(null);
-                            navigate('/');
-                        }} >
+                        <Divider />
+                        <MenuItem 
+                            onClick={ () => {
+                            navigate(`/auctions`);
+                        }}>
                             <ListItemIcon>
-                                <Logout fontSize="small" />
+                                <GavelIcon fontSize="small" />
                             </ListItemIcon>
-                            Logout
+                            Auction Container
                         </MenuItem>
                     </Menu>
     </React.Fragment>

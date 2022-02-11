@@ -13,6 +13,25 @@ body {
     padding-bottom: 5px;
 }
 
+.logged-out-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: black;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.logged-out-header .app-logo {
+    padding: 5px;
+    margin-left: 40px;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 .app-logo {
     padding: 5px;
     margin-left: 40px;

@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import AuctionCard from "../components/AuctionCard";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
+
+import ReusableCard from "../components/ReusableCard";
 
 import { CoinsContext } from "../contexts/CoinsContext";
 import { PressingsContext } from "../contexts/PressingsContext";
@@ -22,7 +23,7 @@ export default function AuctionContainer(){
                 {[...Array(n)].map((e, i) =>
                     <Skeleton variant="rectangular" width={345} height={300} key={i} />
                 )}
-            </Grid>
+            </Grid> 
         </Box>
         )
       }
@@ -37,7 +38,16 @@ export default function AuctionContainer(){
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         {takenPressings.map((e, i) =>
-                            <AuctionCard variant="rectangular" width={350} height={300} key={i} pressData={takenPressings[i].attributes} pressId={takenPressings[i].id} usrId={takenPressings[i].attributes.coins[0].user_id} />
+                            <ReusableCard 
+                            variant="rectangular" 
+                            width={350} 
+                            height={300} 
+                            key={i} 
+                            pressingData={takenPressings[i].attributes} 
+                            pressingId={takenPressings[i].id} 
+                            userId={takenPressings[i].attributes.coins[0].user_id} 
+                            location={"auction"}
+                            />
                         )}
                     </Grid>
                 </Box>

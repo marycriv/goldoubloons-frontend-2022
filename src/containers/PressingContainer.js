@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import Pressing from '../components/Pressing';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 import { CoinsContext } from "../contexts/CoinsContext";
 import { PressingsContext } from "../contexts/PressingsContext";
+
+import ReusableCard from '../components/ReusableCard';
 
 function PressingContainer() {
 
@@ -36,7 +37,15 @@ function PressingContainer() {
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         {availablePressings.map((e, i) =>
-                            <Pressing variant="rectangular" width={350} height={300} key={i} pressData={availablePressings[i].attributes} pressId={availablePressings[i].id} />
+                            <ReusableCard 
+                            variant="rectangular" 
+                            width={350} 
+                            height={300} 
+                            key={i} 
+                            pressingData={availablePressings[i].attributes} 
+                            pressingId={availablePressings[i].id} 
+                            location={"marketplace"}
+                            />
                         )}
                     </Grid>
                 </Box>

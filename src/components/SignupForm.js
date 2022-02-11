@@ -19,9 +19,9 @@ const style = {
     p: 4
   };
 
-function LoginForm(){
+function SignupForm(){
 
-    const [details, setDetails] = useState({username: "", display_name:"", password: "", icon: "", wallet: 1000});
+    const [details, setDetails] = useState({username: "", display_name:"", password: "", icon: "", wallet: ""});
     const navigate = useNavigate();
 
     return(
@@ -96,4 +96,4 @@ function LoginForm(){
     )
 }
 
-export default LoginForm;
+export default SignupForm;

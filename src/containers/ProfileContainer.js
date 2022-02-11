@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 import { Button } from '@mui/material';
 
-import { UserContext } from '../contexts/UserContext';
-
 import WalletContainer from './WalletContainer';
 
+import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
-
 
 export default function ProfileContainer() {
 
