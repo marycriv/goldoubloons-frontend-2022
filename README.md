@@ -1,7 +1,27 @@
-Crypto exchange: https://github.com/NoriSte/react-crypto-compare
+# Golddoubloons Front-end
 
+React front-end application with [Rails API backend](https://github.com/marycriv/jeff-goldoubloons-backend-2022)
 
-# Getting Started with Create React App
+## To do
+- ~~Refactor cards to reusable component~~
+- Rename components (pressings => marketplace, wallet => portfolio)
+- Reassemble components & containers
+- "Money" processing (subtract "money" from user.wallet on purchase)
+- Make repeatable form component
+- Refactor fetches
+    - App should not have to fetch *so much* data every time a change is made, this is not scalable
+    - **Solution:** Refactor backend to provide us with more detailed json data on fetch
+- Axios (maybe?)
+- More detailed error messages, especially from fetches
+- More manipulatable crypto API
+- Make app more DRY
+
+Packages
+[Crypto exchange](https://github.com/NoriSte/react-crypto-compare)
+
+---
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

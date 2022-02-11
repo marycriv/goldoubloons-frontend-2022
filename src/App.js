@@ -40,7 +40,6 @@ function App() {
             <div className="contents">
               <Routes>
                 <Route path='*' element={<ErrorPage />} />
-                {/* <Route path="/" element={<PressingContainer />}/> */}
                 <Route path={user.username} exact element={<ProfileContainer/>}/>
                 <Route path={user.username + '/edit'} exact element={<UpdateForm />}/>
                 <Route path="/main" element={<PressingContainer />}/>

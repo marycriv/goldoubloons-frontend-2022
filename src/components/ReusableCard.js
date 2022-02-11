@@ -16,7 +16,7 @@ import { UserContext } from '../contexts/UserContext';
 
 import '../styling.css';
 
-const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd"
+const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd";
 
 function ReusableCard(props) {
 

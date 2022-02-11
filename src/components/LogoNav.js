@@ -26,7 +26,7 @@ export default function LogoNav() {
   return (
     <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                    <Tooltip title="My portfolio">
+                    <Tooltip title="Navigate">
                         <IconButton
                             onClick={handleClick}
                             size="small"

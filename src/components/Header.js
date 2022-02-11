@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Grid from '@mui/material/Grid';
-import AccountContainer from '../containers/AccountContainer';
+import Account from './Account';
 import LogoNav from './LogoNav';
 
 import { UserContext } from '../contexts/UserContext';
@@ -21,14 +21,12 @@ function Header() {
                             <div className="site-title">Jeff Golddoubloons</div>
                         </Grid>
                         <Grid item xs={4}>
+                            
                         </Grid>
                     </Grid>
             </div>
-            
             : 
                 <div className="header">
-
-                
                     <Grid container spacing={2}>
                         <Grid item xs={4}>
                             <LogoNav />
@@ -37,11 +35,9 @@ function Header() {
                             <div className="site-title">Jeff Golddoubloons</div>
                         </Grid>
                         <Grid item xs={4}>
-                            <AccountContainer />
+                            <Account />
                         </Grid>
                     </Grid>
-            
-
                 </div>
                 }
             </>
