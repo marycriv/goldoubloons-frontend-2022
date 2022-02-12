@@ -16,8 +16,6 @@ import { UserContext } from '../contexts/UserContext';
 
 import '../styling.css';
 
-const APIkey = "bc55a72d6dbc877359d7bef56d7d183547ab835e9099e7a5fb6b2041d0301ccd";
-
 function ReusableCard(props) {
 
     const { user } = useContext(UserContext);
@@ -42,7 +40,7 @@ function ReusableCard(props) {
                     <CardActions>
                         <Grid container spacing={2}>
                         <Grid item xs={3}>
-                            <CryptoCompare from="ETH" to="USD" amount={props.pressingData.cost} apikey={APIkey} />
+                            <CryptoCompare from="ETH" to="USD" amount={props.pressingData.cost} apikey={`${process.env.REACT_APP_CRYPTOCOMPARE_API_KEY}`} />
                         </Grid>
                         <Grid item xs={2}>
                             Ξ {props.pressingData.cost}
