@@ -120,8 +120,6 @@ h3 {
     object-fit: cover;
 }
 
-
-
 /* Welcome Page Component */
 
 .welcome-page-header {
@@ -129,7 +127,6 @@ h3 {
     color: white;
     height: 58rem;
     background-image: url('../public/bg2.jpeg');
-    background-size: 100%;
     background-position: center;
 }
 
