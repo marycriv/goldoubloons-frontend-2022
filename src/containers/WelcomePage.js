@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import PreviewCoins from './PreviewCoins';
+import PreviewCoins from '../components/PreviewCoins';
 
 import { useNavigate } from 'react-router-dom';
 

@@ -5,18 +5,18 @@ import { UserContext } from "./contexts/UserContext";
 import { CoinsContext } from "./contexts/CoinsContext";
 import { PressingsContext } from "./contexts/PressingsContext";
 
-import Header from './components/Header';
+import LandingPage from "./containers/LandingPage";
+import WelcomePage from "./containers/WelcomePage";
+import SignupForm from './containers/SignupPage';
+import LoginForm from "./containers/LoginPage";
+import UpdateForm from './containers/UpdatePage';
 import ProfileContainer from "./containers/ProfileContainer";
 import AuctionContainer from "./containers/AuctionContainer";
 import PressingContainer from "./containers/PressingContainer";
 
-import WelcomePage from "./components/WelcomePage";
-import ConfirmationPage from "./components/ConfirmationPage";
-import SignupForm from './components/SignupForm';
+import Header from './components/Header';
+import ConfirmationPage from "./containers/ConfirmationPage";
 import ErrorPage from "./components/ErrorPage";
-import LandingPage from "./components/LandingPage";
-import UpdateForm from './components/UpdateForm';
-import LoginForm from "./components/LoginForm";
 
 import './styling.css';
 
