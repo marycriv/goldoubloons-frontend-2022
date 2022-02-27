@@ -6,6 +6,9 @@ test('renders eyes link + clickable', () => {
   const eyesLinkElement = screen.getByText(/Enter all ye who seek the blum/i);
   expect(eyesLinkElement).toBeInTheDocument();
 
+  const logo = screen.getByAltText(/logo/i);
+  expect(logo).toBeInTheDocument();
+
   // click eyesLinkElement
   fireEvent.click(eyesLinkElement);
 });
