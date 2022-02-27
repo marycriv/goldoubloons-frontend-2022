@@ -10,6 +10,8 @@ export const login = async (details) => {
       body: JSON.stringify({ user: details })
     };
 
+    const obj = {};
+
     let response = await fetch(API + "login", params)
     const data = await response.json();
     const loginInfo = data;
@@ -18,13 +20,15 @@ export const login = async (details) => {
     const data2 = await response2.json();
     const pressingInfo = data2.data;
 
+    console.log(loginInfo.status)
+
     if (loginInfo.status == 200) {
       return { 
           loginInfo, 
           pressingInfo 
       }
     } else {
-      console.log("error!!!!") 
+      return { loginInfo }
     }
     
 };

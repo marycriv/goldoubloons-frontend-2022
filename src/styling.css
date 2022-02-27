@@ -190,3 +190,16 @@ h3 {
     background-image: url('../public/eyes.png');
     cursor: pointer;
 }
+
+/* login page */
+.error-alert {
+  display: none;
+}
+
+.show-alert {
+  display: block;
+}
+
+.css-xilmwd-MuiPaper-root-MuiAlert-root {
+  margin-top: 10px;
+}

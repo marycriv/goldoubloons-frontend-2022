@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
 
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
@@ -10,6 +11,8 @@ import { CoinsContext } from '../contexts/CoinsContext';
 import { PressingsContext } from '../contexts/PressingsContext';
 
 import { login } from '../actions/login';
+
+import '../styling.css';
 
 const style = {
     position: 'absolute',
@@ -31,6 +34,8 @@ function LoginPage(){
     const { setPressings } = useContext(PressingsContext);
 
     const [details, setDetails] = useState({username: "mike", password: "password"});
+
+    const [errDisplay, setErrDisplay] = useState("error-alert")
 
     const navigate = useNavigate();
 
@@ -66,14 +71,23 @@ function LoginPage(){
                         variant="outlined"
                         disableElevation
                         onClick={async () => {
-                            const loginInfo = await login(details);
-                            console.log("LOGIN INFO", loginInfo.loginInfo.user, loginInfo.pressingInfo)
-                            setUser(loginInfo.loginInfo.user);
-                            setCoins(loginInfo.loginInfo.relationships);
-                            setPressings(loginInfo.pressingInfo)
-                            navigate(`/main`)
+                            const loginResponse = await login(details);
+                              { if (loginResponse.loginInfo.status == 200) { 
+                              console.log("LOGIN INFO", loginResponse.loginInfo.user, loginResponse.pressingInfo)
+                              setUser(loginResponse.loginInfo.user)
+                              setCoins(loginResponse.loginInfo.relationships)
+                              setPressings(loginResponse.pressingInfo)
+                              navigate(`/main`) 
+                            } else {
+                              console.log("loginError");
+                              setErrDisplay("show-error")
+                            }
+                          }
                         }}
                     >Login</Button>
+                    <div className={`${errDisplay}`}>
+                      <Alert severity="error">Error, incorrect username or password.</Alert>
+                    </div>
                 </Box>
             </Box>
         </>
