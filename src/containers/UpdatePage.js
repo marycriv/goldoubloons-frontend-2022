@@ -21,7 +21,7 @@ const style = {
     p: 4
   };
 
-function UpdateForm(){
+function UpdatePage(){
 
     const { user, setUser } = useContext(UserContext);
     const [details, setDetails] = useState({username: user.username, display_name: user.display_name, icon: user.icon, wallet: user.wallet});
@@ -83,4 +83,4 @@ function UpdateForm(){
     )
 }
 
-export default UpdateForm;
+export default UpdatePage;

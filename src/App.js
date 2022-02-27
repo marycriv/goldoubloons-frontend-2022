@@ -7,16 +7,16 @@ import { PressingsContext } from "./contexts/PressingsContext";
 
 import LandingPage from "./containers/LandingPage";
 import WelcomePage from "./containers/WelcomePage";
-import SignupForm from './containers/SignupPage';
+import SignupPage from './containers/SignupPage';
 import LoginPage from "./containers/LoginPage";
-import UpdateForm from './containers/UpdatePage';
+import UpdatePage from './containers/UpdatePage';
 import ProfileContainer from "./containers/ProfileContainer";
 import AuctionContainer from "./containers/AuctionContainer";
 import PressingContainer from "./containers/PressingContainer";
 
 import Header from './components/Header';
 import ConfirmationPage from "./containers/ConfirmationPage";
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./containers/ErrorPage";
 
 import './styling.css';
 
@@ -41,7 +41,7 @@ function App() {
               <Routes>
                 <Route path='*' element={<ErrorPage />} />
                 <Route path={user.username} exact element={<ProfileContainer/>}/>
-                <Route path={user.username + '/edit'} exact element={<UpdateForm />}/>
+                <Route path={user.username + '/edit'} exact element={<UpdatePage />}/>
                 <Route path="/main" element={<PressingContainer />}/>
                 <Route path="/auctions" element={<AuctionContainer />}/>
                 <Route path="/success" element={<ConfirmationPage/>}/>
@@ -55,7 +55,7 @@ function App() {
                     <Route path="/" exact element={<LandingPage />} />
                     <Route path="/landing" exact element={<WelcomePage />} />
                     <Route path="/login" exact element={<LoginPage/>}/>
-                    <Route path="/signup" element={<SignupForm />}/>
+                    <Route path="/signup" element={<SignupPage />}/>
                   </Routes>
             </div>}
           </PressingsContext.Provider>

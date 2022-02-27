@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import { render, fireEvent, screen } from '@testing-library/react';
-import LoginPage from '../containers/LoginPage';
+import LoginPage from '../../containers/LoginPage';
 
-import { UserContext } from '../contexts/UserContext';
-import { CoinsContext } from '../contexts/CoinsContext';
-import { PressingsContext } from '../contexts/PressingsContext';
+import { UserContext } from '../../contexts/UserContext';
+import { CoinsContext } from '../../contexts/CoinsContext';
+import { PressingsContext } from '../../contexts/PressingsContext';
 
 test('renders login form', () => {
   const val = {"username": "mike", "password": "password"};

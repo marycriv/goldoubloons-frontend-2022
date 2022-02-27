@@ -19,7 +19,7 @@ const style = {
     p: 4
   };
 
-function SignupForm(){
+function SignupPage(){
 
     const [details, setDetails] = useState({username: "", display_name:"", password: "", icon: "", wallet: ""});
     const navigate = useNavigate();
@@ -96,4 +96,4 @@ function SignupForm(){
     )
 }
 
-export default SignupForm;
+export default SignupPage;
