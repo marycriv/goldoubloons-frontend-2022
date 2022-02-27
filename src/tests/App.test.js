@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import App from '../App';
 
-test('renders eyes link', () => {
+test('renders eyes link + clickable', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Enter all ye who seek the blum/i);
-  expect(linkElement).toBeInTheDocument();
+  const eyesLinkElement = screen.getByText(/Enter all ye who seek the blum/i);
+  expect(eyesLinkElement).toBeInTheDocument();
+
+  // click eyesLinkElement
+  fireEvent.click(eyesLinkElement);
 });

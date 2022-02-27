@@ -24,7 +24,7 @@ const style = {
     outline: 0
   };
 
-function LoginForm(){
+function LoginPage(){
 
     const { setUser } = useContext(UserContext);
     const { setCoins } = useContext(CoinsContext);
@@ -80,4 +80,4 @@ function LoginForm(){
     )
 }
 
-export default LoginForm;
+export default LoginPage;

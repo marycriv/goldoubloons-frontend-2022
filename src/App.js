@@ -8,7 +8,7 @@ import { PressingsContext } from "./contexts/PressingsContext";
 import LandingPage from "./containers/LandingPage";
 import WelcomePage from "./containers/WelcomePage";
 import SignupForm from './containers/SignupPage';
-import LoginForm from "./containers/LoginPage";
+import LoginPage from "./containers/LoginPage";
 import UpdateForm from './containers/UpdatePage';
 import ProfileContainer from "./containers/ProfileContainer";
 import AuctionContainer from "./containers/AuctionContainer";
@@ -54,7 +54,7 @@ function App() {
                     <Route path='*' element={<ErrorPage />} />
                     <Route path="/" exact element={<LandingPage />} />
                     <Route path="/landing" exact element={<WelcomePage />} />
-                    <Route path="/login" exact element={<LoginForm/>}/>
+                    <Route path="/login" exact element={<LoginPage/>}/>
                     <Route path="/signup" element={<SignupForm />}/>
                   </Routes>
             </div>}
