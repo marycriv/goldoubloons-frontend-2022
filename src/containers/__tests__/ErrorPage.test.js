@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, screen } from '@testing-library/react';
-import ErrorPage from '../../containers/ErrorPage';
+import ErrorPage from '../ErrorPage';
 
 test('renders error page', () => {
 

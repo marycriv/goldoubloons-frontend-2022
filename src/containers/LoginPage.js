@@ -40,7 +40,7 @@ function LoginPage(){
     const navigate = useNavigate();
 
     return(
-        <>
+        <div data-testid="login-form">
             <Box sx={style}>
                 <Box
                     component="form"
@@ -90,7 +90,7 @@ function LoginPage(){
                     </div>
                 </Box>
             </Box>
-        </>
+        </div>
     )
 }
 

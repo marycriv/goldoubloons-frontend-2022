@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { render, screen } from '@testing-library/react';
-import WelcomePage from '../../containers/WelcomePage';
+import WelcomePage from '../WelcomePage';
 
 import { UserContext } from '../../contexts/UserContext';
 import { CoinsContext } from '../../contexts/CoinsContext';

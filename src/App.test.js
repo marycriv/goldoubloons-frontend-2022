@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import App from '../App';
+import App from './App';
 
 test('renders eyes link + clickable', () => {
   render(<App />);
