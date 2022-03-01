@@ -1,12 +1,31 @@
 import React from 'react';
 import { BrowserRouter as Router} from "react-router-dom";
 
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import LoginPage from '../LoginPage';
 
 import { UserContext } from '../../contexts/UserContext';
 import { CoinsContext } from '../../contexts/CoinsContext';
 import { PressingsContext } from '../../contexts/PressingsContext';
+
+const mockSetUser = jest.fn()
+jest.mock('../hooks/use-context', () => {
+    return jest.fn(() => ({
+       setUser: mockSetUser
+    }))
+})
+
+const mockedNavigate = jest.fn();
+
+jest.mock('react-router-dom', () => {
+  const actualNav = jest.requireActual('react-router-dom');
+  return {
+    ...actualNav,
+    useNavigation: () => ({
+      navigate: mockedNavigate,
+    }),
+  };
+});
 
 let getByTestId;
 
@@ -40,17 +59,17 @@ test('renders login form', () => {
 
 });
 
-test('login with existing user, expect successful login', () => {
+test('login with existing user, expect successful login', async () => {
 
   // expect to see username field
-  const usernameField = screen.getByLabelText(/Username/i);
+  const usernameField = screen.getByTestId(/username-field/i);
   expect(usernameField).toBeInTheDocument();
 
   // expect to see password field
-  const passwordField = screen.getByLabelText(/Password/i);
+  const passwordField = screen.getByTestId(/password-field/i);
   expect(passwordField).toBeInTheDocument();
 
-  const loginButton = screen.getByText(/login/i);
+  const loginButton = screen.getByTestId(/login-button/i);
   expect(loginButton).toBeInTheDocument();
 
   // fill out the form
@@ -60,8 +79,10 @@ test('login with existing user, expect successful login', () => {
   fireEvent.change(passwordField, {
     target: {value: "password"},
   })
-    
-  fireEvent.click(loginButton)
+  
+  fireEvent.click(loginButton);
+  await waitFor(() => expect(mockSetUser).toBeCalled())
+  await waitFor(() => expect(mockedNavigate).toHaveBeenCalledTimes(1));
 })
 
 test('login with user that does not exist, expect failed login', () => {

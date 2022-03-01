@@ -50,6 +50,7 @@ function LoginPage(){
                     <TextField
                         required
                         id="outlined-required"
+                        inputProps={{ "data-testid": "username-field" }}
                         label="Username"
                         onChange={e => setDetails({...details, username: e.target.value})}
                         value={details.username || ""}
@@ -59,6 +60,7 @@ function LoginPage(){
                     <TextField
                         required
                         id="outlined-password-input"
+                        inputProps={{ "data-testid": "password-field" }}
                         label="Password"
                         type="password"
                         autoComplete="current-password"
@@ -68,6 +70,7 @@ function LoginPage(){
                     <br/>
                     <br/>
                     <Button 
+                        data-testid="login-button"
                         variant="outlined"
                         disableElevation
                         onClick={async () => {
@@ -80,7 +83,7 @@ function LoginPage(){
                               navigate(`/main`) 
                             } else {
                               console.log("loginError");
-                              setErrDisplay("show-error")
+                              setErrDisplay("show-error");
                             }
                           }
                         }}
