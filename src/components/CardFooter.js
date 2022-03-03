@@ -95,7 +95,7 @@ function renderSwitch(props, user, setUser, setCoins, setPressings, navigate) {
         );
       case 'error':
         return(
-            <div>Error :(</div>
+            <div>Error</div>
         );
       default:
         return 'error';

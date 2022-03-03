@@ -10,6 +10,7 @@ import WelcomePage from "./containers/WelcomePage";
 import SignupPage from './containers/SignupPage';
 import LoginPage from "./containers/LoginPage";
 import UpdatePage from './containers/UpdatePage';
+import VideoPage from "./containers/VideoPage";
 import ProfileContainer from "./containers/ProfileContainer";
 import AuctionContainer from "./containers/AuctionContainer";
 import PressingContainer from "./containers/PressingContainer";
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/main" element={<PressingContainer />}/>
                 <Route path="/auctions" element={<AuctionContainer />}/>
                 <Route path="/success" element={<ConfirmationPage/>}/>
+                <Route path="/video" element={<VideoPage/>}/>
               </Routes>
             </div>
           </div>
@@ -56,6 +58,7 @@ function App() {
                     <Route path="/landing" exact element={<WelcomePage />} />
                     <Route path="/login" exact element={<LoginPage/>}/>
                     <Route path="/signup" element={<SignupPage />}/>
+                    <Route path="/video" element={<VideoPage/>}/>
                   </Routes>
             </div>}
           </PressingsContext.Provider>
