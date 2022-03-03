@@ -41,7 +41,7 @@ export default function Account() {
                                 aria-expanded={open ? 'true' : undefined}
                                 className="user-icon"
                             >
-                                <img src={user.icon} alt={user.username} />
+                                <img src={process.env.PUBLIC_URL + user.username + `.png`} alt={user.username} />
                             </IconButton>
                         </Tooltip>
                     </Box>

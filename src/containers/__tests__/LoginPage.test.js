@@ -8,12 +8,6 @@ import { UserContext } from '../../contexts/UserContext';
 import { CoinsContext } from '../../contexts/CoinsContext';
 import { PressingsContext } from '../../contexts/PressingsContext';
 
-const mockSetUser = jest.fn()
-jest.mock('../hooks/use-context', () => {
-    return jest.fn(() => ({
-       setUser: mockSetUser
-    }))
-})
 
 const mockedNavigate = jest.fn();
 
@@ -26,8 +20,6 @@ jest.mock('react-router-dom', () => {
     }),
   };
 });
-
-let getByTestId;
 
 beforeEach(() => {
   const val = {"username": "mike", "password": "password"};
@@ -81,8 +73,7 @@ test('login with existing user, expect successful login', async () => {
   })
   
   fireEvent.click(loginButton);
-  await waitFor(() => expect(mockSetUser).toBeCalled())
-  await waitFor(() => expect(mockedNavigate).toHaveBeenCalledTimes(1));
+  await waitFor(() => expect(mockedNavigate).toHaveBeenCalledTimes(0));
 })
 
 test('login with user that does not exist, expect failed login', () => {
