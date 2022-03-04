@@ -15,7 +15,6 @@ export const login = async (details) => {
     let response = await fetch(API + "login", params)
     const data = await response.json();
     const loginInfo = data;
-    console.log(loginInfo)
 
     const response2 = await fetch(API + "pressings");
     const data2 = await response2.json();
@@ -24,8 +23,6 @@ export const login = async (details) => {
     const response3 = await fetch(API + "coins");
     const data3 = await response3.json();
     const coinsInfo = data3.data;
-
-    console.log(loginInfo.status)
 
     if (loginInfo.status == 200) {
       return { 

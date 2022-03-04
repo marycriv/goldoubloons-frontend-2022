@@ -4,6 +4,7 @@ React front-end application with [Rails API backend](https://github.com/marycriv
 
 ## To do
 - ~~Refactor cards to reusable component~~
+- Move Cryptocompare to backend 
 - Rename components (pressings => marketplace, wallet => portfolio)
 - Reassemble components & containers
 - "Money" processing (subtract "money" from user.wallet on purchase)
@@ -13,7 +14,6 @@ React front-end application with [Rails API backend](https://github.com/marycriv
     - **Solution:** Refactor backend to provide us with more detailed json data on fetch
 - Axios (maybe?)
 - More detailed error messages, especially from fetches
-- More manipulatable crypto API
 - Make app more DRY
 
 Packages

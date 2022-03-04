@@ -18,48 +18,48 @@ import '../styling.css';
 
 function ReusableCard(props) {
 
-    const { user } = useContext(UserContext);
-    console.log(props.pressingData);
+  const { user } = useContext(UserContext);
     
-        return(
-            <Grid item>
-                <Card sx={{ width: 350 }} elevation={0} variant="outlined">
-                    <CardMedia
-                        component="img"
-                        image={process.env.PUBLIC_URL + props.pressingData.slug + `.gif`}
-                        alt={props.pressingData.name}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div" className="coin-titles">
-                                {props.pressingData.name}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary" component="div">
-                                <p dangerouslySetInnerHTML={{__html: props.pressingData.description}} />
-                            </Typography>
-                    </CardContent>
-                    <Divider />
-                    <CardActions>
-                        <Grid container spacing={2}>
-                        <Grid item xs={3}>
-                            <CryptoCompare from="ETH" to="USD" amount={props.pressingData.cost} apikey={`${process.env.REACT_APP_CRYPTOCOMPARE_API_KEY}`} />
-                        </Grid>
-                        <Grid item xs={2}>
-                            Ξ {props.pressingData.cost}
-                        </Grid>
-                            <CardFooter 
-                                user={user}
-                                location={props.location}
-                                pressingId={props.pressingId}
-                                walletCoin={props.walletCoin}
-                                originalCoin={props.originalCoin}
-                                pressingData={props.pressingData}
-                                userId={props.userId}
-                                coinId={props.coinId}
-                            />
-                        </Grid>
-                    </CardActions> 
-                </Card>
-        </Grid>
+    return(
+      <Grid item>
+        <Card sx={{ width: 350 }} elevation={0} variant="outlined">
+          <CardMedia
+            component="img"
+            image={process.env.PUBLIC_URL + props.pressingData.slug + `.gif`}
+            alt={props.pressingData.name}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div" className="coin-titles">
+              {props.pressingData.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" component="div">
+              <p dangerouslySetInnerHTML={{__html: props.pressingData.description}} />
+            </Typography>
+          </CardContent>
+          <Divider />
+          <CardActions>
+            <Grid container spacing={2}>
+              <Grid item xs={3}>
+                <CryptoCompare from="ETH" to="USD" amount={props.pressingData.cost} apikey={`${process.env.REACT_APP_CRYPTOCOMPARE_API_KEY}`} />
+              </Grid>
+              <Grid item xs={2}>
+                Ξ {props.pressingData.cost}
+              </Grid>
+              <CardFooter 
+                user={user}
+                location={props.location}
+                pressingId={props.pressingId}
+                walletCoin={props.walletCoin}
+                originalCoin={props.originalCoin}
+                pressingData={props.pressingData}
+                userId={props.userId}
+                coinId={props.coinId}
+                userInfo={props.userInfo}
+              />
+            </Grid>
+          </CardActions> 
+        </Card>
+      </Grid>
         )
 }
 

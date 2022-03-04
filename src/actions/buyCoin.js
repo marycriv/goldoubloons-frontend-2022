@@ -14,11 +14,9 @@ export const buyCoin = async (details, user_id) => {
     const data = await response.json();
     const purchaseInfo = data.data;
 
-
     const response2 = await fetch(API + "users/" + user_id);
     const data2 = await response2.json();
     const userInfo = data2.data.attributes;
-    console.log("helLOOOOOOO", userInfo)
 
     const response3 = await fetch(API + "pressings");
     const data3 = await response3.json();
@@ -27,8 +25,6 @@ export const buyCoin = async (details, user_id) => {
     const response4 = await fetch(API + "/coins");
     const data4 = await response4.json();
     const coinsInfo = data4.data;
-    console.log(coinsInfo)
-
 
     return { purchaseInfo, pressingInfo, userInfo, coinsInfo }
 };

@@ -22,7 +22,6 @@ export const sellCoin = async (coin_id, user_id) => {
     const response4 = await fetch(API + "/coins");
     const data4 = await response4.json();
     const coinsInfo = data4.data;
-    console.log(coinsInfo)
 
     return { pressingInfo, userInfo, coinsInfo }
 

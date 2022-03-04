@@ -207,3 +207,10 @@ h3 {
 .vid-box {
   margin-top: 8vh;
 }
+
+.footer-icon {
+  height: 32px;
+  width: 32px;
+  border: 8px solid black;
+  border-radius: 50%;
+}

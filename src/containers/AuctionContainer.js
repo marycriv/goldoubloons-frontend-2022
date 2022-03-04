@@ -49,6 +49,7 @@ export default function AuctionContainer(){
                         key={i} 
                         pressingData={pressing.attributes.pressing}
                         coinId={pressing.id}
+                        userInfo={pressing.attributes.user}
                         userId={pressing.attributes.user_id} 
                         location={"auction"}
                       />

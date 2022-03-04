@@ -82,18 +82,17 @@ function renderSwitch(props, user, setUser, setCoins, setPressings, navigate) {
                     size="small" 
                     zindex={1}
                     onClick={async () => {
-                      console.log(props.coinId, user.id);
                       const auctionInfo = await auctionPurchase({pressing_id: props.pressingData.id, user_id: user.id, for_sale: false}, user.id, props.coinId);
                       setCoins(auctionInfo.coinsInfo)
                       setUser(auctionInfo.userInfo)
                       setPressings(auctionInfo.pressingInfo)
-                      navigate(`/${user.username}`)
+                      navigate(`/success`)
                     }}>
                     <FontAwesomeIcon icon={faEthereum} /> Buy Now
                 </Button>}
                 </Grid>
                 <Grid item xs={3}>
-                  <p>{props.userId}</p>
+                  <img className="footer-icon" src={process.env.PUBLIC_URL + props.userInfo.icon} title={props.userInfo.display_name} />
                 </Grid>
             </>
         );

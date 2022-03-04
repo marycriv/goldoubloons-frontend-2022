@@ -1,8 +1,6 @@
 export const auctionPurchase = async (details, user_id, coin_id) => {
     const API = "http://localhost:3010/api/v1/"
 
-    console.log("DEETZ", details)
-
     // delte original coin relationship
     const deleteParams = {
         method: 'DELETE',
@@ -38,7 +36,6 @@ export const auctionPurchase = async (details, user_id, coin_id) => {
     const response5 = await fetch(API + "/coins");
     const data5 = await response5.json();
     const coinsInfo = data5.data;
-    console.log(coinsInfo)
 
     return { purchaseInfo, pressingInfo, userInfo, coinsInfo }
 };
