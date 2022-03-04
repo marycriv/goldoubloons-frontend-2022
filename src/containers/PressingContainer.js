@@ -9,21 +9,21 @@ import ReusableCard from '../components/ReusableCard';
 
 function PressingContainer() {
 
-    const { coins } = useContext(CoinsContext);
-    const { pressings } = useContext(PressingsContext);
+  const { coins } = useContext(CoinsContext);
+  const { pressings } = useContext(PressingsContext);
 
-    if (pressings === null) {
-        const n = 27;
-        return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
-                {[...Array(n)].map((e, i) =>
-                    <Skeleton variant="rectangular" width={345} height={300} key={i} />
-                )}
-            </Grid>
-        </Box>
-        )
-      }
+  if (pressings === null) {
+    const n = 27;
+    return (
+    <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+            {[...Array(n)].map((e, i) =>
+              <Skeleton variant="rectangular" width={345} height={300} key={i} />
+            )}
+        </Grid>
+    </Box>
+    )
+  }
 
       if (coins && pressings) {
 
@@ -33,7 +33,7 @@ function PressingContainer() {
     
         return(
             <>
-                <h3>Coins for Sale:</h3>
+              <h3>Coins for Sale:</h3>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         {availablePressings.map((e, i) =>

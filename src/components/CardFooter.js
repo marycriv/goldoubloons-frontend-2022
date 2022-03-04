@@ -26,10 +26,10 @@ function renderSwitch(props, user, setUser, setCoins, setPressings, navigate) {
             <>
                 <Grid item xs={3}>
                     <Switch
-                        checked={props.originalCoin.for_sale}
+                        checked={props.originalCoin.attributes.for_sale}
                         inputProps={{ 'aria-label': 'controlled' }}
                         onChange={async () => {
-                           const auctionCoinOff = await updateCoin({ for_sale: !props.originalCoin.for_sale}, user.id, props.originalCoin.id);
+                           const auctionCoinOff = await updateCoin({ for_sale: !props.originalCoin.attributes.for_sale}, user.id, props.originalCoin.id);
                            setCoins(auctionCoinOff.coinsInfo);
                            setPressings(auctionCoinOff.pressingInfo);
                         }}/>
@@ -75,21 +75,25 @@ function renderSwitch(props, user, setUser, setCoins, setPressings, navigate) {
         );
       case 'auction':
         return(
-            <>
-                <Grid item xs={7}>
-                    {props.userId === user.id ? <b>You own this coin!</b> 
-                    : <Button 
-                        size="small" 
-                        zindex={1}
-                        onClick={async () => {
-                            const auctionInfo = await auctionPurchase({pressing_id: props.pressingId, user_id: user.id, for_sale: false}, user.id, props.pressingData.coins[0].id);
-                            setCoins(auctionInfo.coinsInfo)
-                            setUser(auctionInfo.userInfo)
-                            setPressings(auctionInfo.pressingInfo)
-                            navigate(`/${user.username}`)
-                        }}>
-                        <FontAwesomeIcon icon={faEthereum} /> Buy Now
-                    </Button>}
+          <>
+            <Grid item xs={4}>
+                {props.userId === user.id ? <b>You own this coin!</b> 
+                : <Button 
+                    size="small" 
+                    zindex={1}
+                    onClick={async () => {
+                      console.log(props.coinId, user.id);
+                      const auctionInfo = await auctionPurchase({pressing_id: props.pressingData.id, user_id: user.id, for_sale: false}, user.id, props.coinId);
+                      setCoins(auctionInfo.coinsInfo)
+                      setUser(auctionInfo.userInfo)
+                      setPressings(auctionInfo.pressingInfo)
+                      navigate(`/${user.username}`)
+                    }}>
+                    <FontAwesomeIcon icon={faEthereum} /> Buy Now
+                </Button>}
+                </Grid>
+                <Grid item xs={3}>
+                  <p>{props.userId}</p>
                 </Grid>
             </>
         );

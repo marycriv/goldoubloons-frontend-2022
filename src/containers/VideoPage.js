@@ -8,12 +8,13 @@ import '../styling.css';
 const ffmpeg = createFFmpeg({corePath: "/ffmpeg-core-dist/ffmpeg-core.js", log: true,});
 
 function VideoPage() {
-  const [ready, setReady] = useState(ffmpeg.isLoaded());
+  const [ready, setReady] = useState();
   const [video, setVideo] = useState();
   const [overlay, setOverlay] = useState()
   const [gif, setGif] = useState();
   const navigate = useNavigate();
 
+  // only if ffmpeg.isLoaded() false
   const load = async () => {
     await ffmpeg.load();
     setReady(true);

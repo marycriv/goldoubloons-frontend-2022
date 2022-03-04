@@ -58,7 +58,6 @@ function App() {
                     <Route path="/landing" exact element={<WelcomePage />} />
                     <Route path="/login" exact element={<LoginPage/>}/>
                     <Route path="/signup" element={<SignupPage />}/>
-                    <Route path="/video" element={<VideoPage/>}/>
                   </Routes>
             </div>}
           </PressingsContext.Provider>

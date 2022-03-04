@@ -9,10 +9,10 @@ import '../styling.css';
 function PreviewCoins() {
 
     const sampleData = {
-        name: "sign up to view NFTs",
-        description: "View this and more NFTs with a Golddoubloons account!",
-        cost: 7,
-        slug: "placeholder"
+      name: "sign up to view NFTs",
+      description: "View this and more NFTs with a Golddoubloons account!",
+      cost: 7,
+      slug: "placeholder"
     }
 
     const n = 3;

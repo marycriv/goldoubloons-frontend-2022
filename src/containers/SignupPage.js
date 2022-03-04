@@ -86,7 +86,6 @@ function SignupPage(){
                             const signupInfo = await signup(details);
                             console.log("signup INFO", signupInfo)
                             // setUser(signupInfo.signupInfo.user);
-                            // setCoins(signupInfo.signupInfo.relationships)
                             navigate(`/`)
                         }}
                     >Signup</Button>

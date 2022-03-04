@@ -11,20 +11,22 @@ export const updateCoin = async (details, user_id, coin_id) => {
         body: JSON.stringify(details)
     };
 
-    const response2 = await fetch(API + "coins/" + coin_id, params);
+    const response = await fetch(API + "coins/" + coin_id, params);
+    const data = await response.json();
+    const purchaseInfo = data.data;
+
+    const response2 = await fetch(API + "users/" + user_id);
     const data2 = await response2.json();
-    const purchaseInfo = data2.data;
+    const userInfo = data2.data.attributes;
 
-    const response3 = await fetch(API + "users/" + user_id);
+    const response3 = await fetch(API + "pressings");
     const data3 = await response3.json();
-    const userInfo = data3.data.attributes;
-    const coinsInfo = data3.data.attributes.coins;
-    console.log(coinsInfo)
+    const pressingInfo = data3.data;
 
-
-    const response4 = await fetch(API + "pressings");
+    const response4 = await fetch(API + "/coins");
     const data4 = await response4.json();
-    const pressingInfo = data4.data;
+    const coinsInfo = data4.data;
+    console.log(coinsInfo)
 
     return { purchaseInfo, pressingInfo, userInfo, coinsInfo }
 };

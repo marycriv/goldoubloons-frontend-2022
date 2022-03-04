@@ -19,6 +19,7 @@ import '../styling.css';
 function ReusableCard(props) {
 
     const { user } = useContext(UserContext);
+    console.log(props.pressingData);
     
         return(
             <Grid item>
@@ -53,6 +54,7 @@ function ReusableCard(props) {
                                 originalCoin={props.originalCoin}
                                 pressingData={props.pressingData}
                                 userId={props.userId}
+                                coinId={props.coinId}
                             />
                         </Grid>
                     </CardActions> 

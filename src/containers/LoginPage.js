@@ -76,9 +76,9 @@ function LoginPage(){
                         onClick={async () => {
                             const loginResponse = await login(details);
                               { if (loginResponse.loginInfo.status == 200) { 
-                              console.log("LOGIN INFO", loginResponse.loginInfo.user, loginResponse.pressingInfo)
+                              console.log("LOGIN INFO", loginResponse.loginInfo, loginResponse.pressingInfo)
                               setUser(loginResponse.loginInfo.user)
-                              setCoins(loginResponse.loginInfo.relationships)
+                              setCoins(loginResponse.coinsInfo)
                               setPressings(loginResponse.pressingInfo)
                               navigate(`/main`) 
                             } else {
