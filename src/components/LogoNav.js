@@ -9,6 +9,7 @@ import Tooltip from '@mui/material/Tooltip';
 import GavelIcon from '@mui/icons-material/Gavel';
 import PaidIcon from '@mui/icons-material/Paid';
 import HomeIcon from '@mui/icons-material/Home';
+import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -102,6 +103,16 @@ export default function LogoNav() {
                                 <GavelIcon fontSize="small" />
                             </ListItemIcon>
                             Auction Container
+                        </MenuItem>
+                        <Divider />
+                        <MenuItem 
+                            onClick={ () => {
+                            navigate(`/video`);
+                        }}>
+                            <ListItemIcon>
+                                <OndemandVideoIcon fontSize="small" />
+                            </ListItemIcon>
+                            Video - WIP
                         </MenuItem>
                     </Menu>
     </React.Fragment>

@@ -8,8 +8,9 @@ import '../styling.css';
 const ffmpeg = createFFmpeg({corePath: "/ffmpeg-core-dist/ffmpeg-core.js", log: true,});
 
 function VideoPage() {
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(ffmpeg.isLoaded());
   const [video, setVideo] = useState();
+  const [overlay, setOverlay] = useState()
   const [gif, setGif] = useState();
   const navigate = useNavigate();
 
@@ -24,8 +25,10 @@ function VideoPage() {
 
   const convertToGif = async () => {
     ffmpeg.FS('writeFile', 'testy.mp4', await fetchFile(video));
+    ffmpeg.FS('writeFile', 'overlay.png', await fetchFile(overlay));
 
-    await ffmpeg.run('-i', 'testy.mp4', '-t', '7', '-f', 'gif', 'jeff.gif');
+    // '-i', `${process.env.PUBLIC_URL + "coin.png"}`, `-filter_complex`, `[0]overlay=x=0:y=0[out]`,
+    await ffmpeg.run('-i', 'testy.mp4', '-i', 'overlay.png', '-filter_complex', 'crop=248:248,scale=-1:248,format=rgba,pad=350:350:175:175:color=white,overlay', '-t', '7', '-f', 'gif', 'jeff.gif');
 
     const data = ffmpeg.FS('readFile', 'jeff.gif');
 
@@ -44,11 +47,14 @@ function VideoPage() {
               
               </video>}
             <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))}/>
-
+            <br/>
+            <br/>
+            <input type="file" onChange={(e) => setOverlay(e.target.files?.item(0))}/>
+            {overlay && <img src={URL.createObjectURL(overlay)}/>}
             <h3>Result</h3>
             <button onClick={convertToGif}>Convert</button>
 
-            { gif && <img src={gif}/> }
+            { gif && <img src={gif} alt="your-gif"/> }
         </div>
       </>
   ) : (<div className="vid-box"><p>Loading...</p></div>)
