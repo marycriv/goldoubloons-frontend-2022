@@ -29,7 +29,7 @@ function VideoPage() {
     await ffmpeg.run(
       '-i', 'temp_vid.mp4', 
       '-i', 'overlay.png', 
-      '-filter_complex', 'crop=248:248,scale=-1:248,format=rgba,pad=350:350:175:175:color=white,overlay', 
+      '-filter_complex', 'crop=248:248,scale=-1:248,format=argb,pad=350:350:175:175:color=white@0,overlay', 
       '-t', '7', 
       '-f', 'gif', 'jeff.gif');
 

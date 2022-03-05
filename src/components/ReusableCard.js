@@ -10,8 +10,6 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 
-import CryptoCompare from "react-crypto-compare";
-
 import { UserContext } from '../contexts/UserContext';
 
 import '../styling.css';
@@ -40,7 +38,7 @@ function ReusableCard(props) {
           <CardActions>
             <Grid container spacing={2}>
               <Grid item xs={3}>
-                <CryptoCompare from="ETH" to="USD" amount={props.pressingData.cost} apikey={`${process.env.REACT_APP_CRYPTOCOMPARE_API_KEY}`} />
+                ${props.pressingData.eth_cost}
               </Grid>
               <Grid item xs={2}>
                 Ξ {props.pressingData.cost}

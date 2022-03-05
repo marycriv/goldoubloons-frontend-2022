@@ -2,9 +2,9 @@
 
 React front-end application with [Rails API backend](https://github.com/marycriv/jeff-goldoubloons-backend-2022)
 
-## To do
+## To do:
 - ~~Refactor cards to reusable component~~
-- Move Cryptocompare to backend 
+- ~~Move Cryptocompare to backend~~
 - Rename components (pressings => marketplace, wallet => portfolio)
 - Reassemble components & containers
 - "Money" processing (subtract "money" from user.wallet on purchase)
@@ -17,8 +17,8 @@ React front-end application with [Rails API backend](https://github.com/marycriv
 - Make app more DRY
 - [Migrate app to TSX](https://www.sitepoint.com/how-to-migrate-a-react-app-to-typescript/)
 
-### Packages:
-- [Crypto exchange](https://github.com/NoriSte/react-crypto-compare)
+## Packages:
+- ~~[Crypto exchange](https://github.com/NoriSte/react-crypto-compare)~~
 - [ffmpeg.wasm](https://ffmpegwasm.netlify.app/)
 
 ---

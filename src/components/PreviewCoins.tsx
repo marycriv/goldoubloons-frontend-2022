@@ -12,11 +12,12 @@ const PreviewCoins: React.FC = () => {
     name: "sign up to view NFTs",
     description: "View this and more NFTs with a Golddoubloons account!",
     cost: 7,
+    eth_cost: 6000,
     slug: "placeholder"
   }
 
   const n = 3;
-  
+
   return(
     <>
       <h3>These could be yours! Sign up today!</h3>
