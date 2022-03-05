@@ -15,9 +15,11 @@ React front-end application with [Rails API backend](https://github.com/marycriv
 - Axios (maybe?)
 - More detailed error messages, especially from fetches
 - Make app more DRY
+- [Migrate app to TSX](https://www.sitepoint.com/how-to-migrate-a-react-app-to-typescript/)
 
-Packages
-[Crypto exchange](https://github.com/NoriSte/react-crypto-compare)
+### Packages:
+- [Crypto exchange](https://github.com/NoriSte/react-crypto-compare)
+- [ffmpeg.wasm](https://ffmpegwasm.netlify.app/)
 
 ---
 

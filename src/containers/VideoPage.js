@@ -51,7 +51,7 @@ function VideoPage() {
           <br/>
           <br/>
           <input type="file" onChange={(e) => setOverlay(e.target.files?.item(0))}/>
-          {overlay && <img src={URL.createObjectURL(overlay)}/>}
+          {overlay && <img src={URL.createObjectURL(overlay)} alt="overlay" />}
           <h3>Result</h3>
           <button onClick={convertToGif}>Convert</button>
 
