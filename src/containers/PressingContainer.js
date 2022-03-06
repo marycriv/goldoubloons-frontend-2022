@@ -28,8 +28,6 @@ function PressingContainer() {
       if (coins && pressings) {
 
         const availablePressings = pressings.filter((pressingInfo) => pressingInfo.relationships.coins.data.length < 1)
-
-        console.log("availablePressings", availablePressings)
     
         return(
             <>

@@ -8,40 +8,39 @@ import { UserContext } from '../contexts/UserContext';
 import '../styling.css';
 
 function Header() {
-    const { user } = useContext(UserContext);
-
-        return(
-            <>
-            {!user ? <div className="logged-out-header">
-                <Grid container spacing={2}>
-                        <Grid item xs={4}>
-                            <LogoNav />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <div className="site-title">Jeff Golddoubloons</div>
-                        </Grid>
-                        <Grid item xs={4}>
-                            
-                        </Grid>
-                    </Grid>
-            </div>
-            : 
-                <div className="header">
-                    <Grid container spacing={2}>
-                        <Grid item xs={4}>
-                            <LogoNav />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <div className="site-title">Jeff Golddoubloons</div>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Account />
-                        </Grid>
-                    </Grid>
-                </div>
-                }
-            </>
-        )
+  const { user } = useContext(UserContext);
+  
+    return(
+      <>
+        {!user ? 
+          <div className="logged-out-header">
+            <Grid container spacing={2}>
+              <Grid item xs={4}>
+                <LogoNav />
+              </Grid>
+              <Grid item xs={4}>
+                <div className="site-title">Jeff Golddoubloons</div>
+              </Grid>
+              <Grid item xs={4}>
+              </Grid>
+            </Grid>
+          </div>
+          : 
+          <div className="header">
+            <Grid container spacing={2}>
+              <Grid item xs={4}>
+                <LogoNav />
+              </Grid>
+              <Grid item xs={4}>
+                <div className="site-title">Jeff Golddoubloons</div>
+              </Grid>
+              <Grid item xs={4}>
+                <Account />
+              </Grid>
+            </Grid>
+          </div>}
+      </>
+    )
 }
 
 export default Header;

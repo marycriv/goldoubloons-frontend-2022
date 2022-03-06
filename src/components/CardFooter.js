@@ -77,24 +77,24 @@ function renderSwitch(props, user, setUser, setCoins, setPressings, navigate) {
         return(
           <>
             <Grid item xs={4}>
-                {props.userId === user.id ? <b>You own this coin!</b> 
-                : <Button 
-                    size="small" 
-                    zindex={1}
-                    onClick={async () => {
-                      const auctionInfo = await auctionPurchase({pressing_id: props.pressingData.id, user_id: user.id, for_sale: false}, user.id, props.coinId);
-                      setCoins(auctionInfo.coinsInfo)
-                      setUser(auctionInfo.userInfo)
-                      setPressings(auctionInfo.pressingInfo)
-                      navigate(`/success`)
-                    }}>
-                    <FontAwesomeIcon icon={faEthereum} /> Buy Now
-                </Button>}
-                </Grid>
-                <Grid item xs={3}>
-                  <img className="footer-icon" src={process.env.PUBLIC_URL + props.userInfo.icon} title={props.userInfo.display_name} />
-                </Grid>
-            </>
+              {props.userId === user.id ? <b>You own this coin!</b> 
+              : <Button 
+                size="small" 
+                zindex={1}
+                onClick={async () => {
+                  const auctionInfo = await auctionPurchase({pressing_id: props.pressingData.id, user_id: user.id, for_sale: false}, user.id, props.coinId);
+                  setCoins(auctionInfo.coinsInfo)
+                  setUser(auctionInfo.userInfo)
+                  setPressings(auctionInfo.pressingInfo)
+                  navigate(`/success`)
+                }}>
+                  <FontAwesomeIcon icon={faEthereum} /> Buy Now
+              </Button>}
+            </Grid>
+            <Grid item xs={3}>
+              <img className="footer-icon" src={process.env.PUBLIC_URL + props.userInfo.icon} title={props.userInfo.display_name} />
+            </Grid>
+          </>
         );
       case 'error':
         return(

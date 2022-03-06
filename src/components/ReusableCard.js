@@ -38,10 +38,10 @@ function ReusableCard(props) {
           <CardActions>
             <Grid container spacing={2}>
               <Grid item xs={3}>
-                ${props.ethCost}
+                ${props.ethCost.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2})}
               </Grid>
               <Grid item xs={2}>
-                Ξ {props.pressingData.cost}
+                <b>Ξ {props.pressingData.cost}</b>
               </Grid>
               <CardFooter 
                 user={user}
