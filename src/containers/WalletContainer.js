@@ -47,6 +47,7 @@ function WalletContainer() {
                             pressingData={userCoins[i].attributes.pressing} 
                             originalCoin={userCoins[i]} 
                             location={"wallet"}
+                            ethCost={userCoins[i].attributes.eth_cost}
                             />
                         )}
                     </Grid>

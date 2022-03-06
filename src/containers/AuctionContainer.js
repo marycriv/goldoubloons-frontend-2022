@@ -34,7 +34,7 @@ export default function AuctionContainer(){
 
       const takenPressings = coins.filter((coinInfo) => coinInfo.attributes.for_sale === true);
 
-      console.log(takenPressings.map((coinInfo) => coinInfo.id))
+      console.log("pressingmap", takenPressings.map((coinInfo) => coinInfo.attributes.pressing))
         
       return(
         <>
@@ -51,6 +51,7 @@ export default function AuctionContainer(){
                         coinId={pressing.id}
                         userInfo={pressing.attributes.user}
                         userId={pressing.attributes.user_id} 
+                        ethCost={pressing.attributes.eth_cost}
                         location={"auction"}
                       />
                     )}

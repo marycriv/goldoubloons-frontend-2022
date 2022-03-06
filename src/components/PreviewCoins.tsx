@@ -31,6 +31,7 @@ const PreviewCoins: React.FC = () => {
               key={i} 
               pressingData={sampleData}
               location={"preview"}
+              ethCost={sampleData.eth_cost}
             />
           )}
         </Grid>

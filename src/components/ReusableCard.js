@@ -38,7 +38,7 @@ function ReusableCard(props) {
           <CardActions>
             <Grid container spacing={2}>
               <Grid item xs={3}>
-                ${props.pressingData.eth_cost}
+                ${props.ethCost}
               </Grid>
               <Grid item xs={2}>
                 Ξ {props.pressingData.cost}

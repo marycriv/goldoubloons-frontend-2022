@@ -45,6 +45,7 @@ function PressingContainer() {
                             pressingData={availablePressings[i].attributes} 
                             pressingId={availablePressings[i].id} 
                             location={"marketplace"}
+                            ethCost={availablePressings[i].attributes.eth_cost}
                             />
                         )}
                     </Grid>
