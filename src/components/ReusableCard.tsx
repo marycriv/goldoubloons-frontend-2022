@@ -14,7 +14,19 @@ import { UserContext } from '../contexts/UserContext';
 
 import '../styling.css';
 
-function ReusableCard(props) {
+type Props = {
+  location: string,
+  pressingId: number,
+  walletCoin: string,
+  originalCoin: string,
+  pressingData: any,
+  userId: number,
+  coinId: number,
+  userInfo: string,
+  ethCost: number
+}
+
+function ReusableCard(props: Props) {
 
   const { user } = useContext(UserContext);
     

@@ -26,36 +26,34 @@ export default function AuctionContainer(){
         </Grid>
       </Box>
     )
-    }
+  }
 
     if (coins && pressings) {
 
       console.log(coins)
-
       const takenPressings = coins.filter((coinInfo) => coinInfo.attributes.for_sale === true);
-
       console.log("pressingmap", takenPressings.map((coinInfo) => coinInfo.attributes.pressing))
         
       return(
         <>
           <h3>Current Auctions:</h3>
             <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                    {takenPressings.map((pressing, i) =>
-                      <ReusableCard 
-                        variant="rectangular" 
-                        width={350} 
-                        height={300} 
-                        key={i} 
-                        pressingData={pressing.attributes.pressing}
-                        coinId={pressing.id}
-                        userInfo={pressing.attributes.user}
-                        userId={pressing.attributes.user_id} 
-                        ethCost={pressing.attributes.eth_cost}
-                        location={"auction"}
-                      />
-                    )}
-                </Grid>
+              <Grid container spacing={2}>
+                {takenPressings.map((pressing, i) =>
+                  <ReusableCard 
+                    variant="rectangular" 
+                    width={350} 
+                    height={300} 
+                    key={i} 
+                    pressingData={pressing.attributes.pressing}
+                    coinId={pressing.id}
+                    userInfo={pressing.attributes.user}
+                    userId={pressing.attributes.user_id} 
+                    ethCost={pressing.attributes.eth_cost}
+                    location={"auction"}
+                  />
+                )}
+              </Grid>
             </Box>
         </>
         )
