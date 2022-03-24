@@ -16,41 +16,41 @@ function PressingContainer() {
     const n = 27;
     return (
     <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-            {[...Array(n)].map((e, i) =>
-              <Skeleton variant="rectangular" width={345} height={300} key={i} />
-            )}
-        </Grid>
+      <Grid container spacing={2}>
+        {[...Array(n)].map((e, i) =>
+          <Skeleton variant="rectangular" width={345} height={300} key={i} />
+        )}
+      </Grid>
     </Box>
     )
   }
 
-      if (coins && pressings) {
+  if (coins && pressings) {
 
-        const availablePressings = pressings.filter((pressingInfo) => pressingInfo.relationships.coins.data.length < 1)
+    const availablePressings = pressings.filter((pressingInfo) => pressingInfo.relationships.coins.data.length < 1)
     
-        return(
-            <>
-              <h3>Coins for Sale:</h3>
-                <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={2}>
-                        {availablePressings.map((e, i) =>
-                            <ReusableCard 
-                            variant="rectangular" 
-                            width={350} 
-                            height={300} 
-                            key={i} 
-                            pressingData={availablePressings[i].attributes} 
-                            pressingId={availablePressings[i].id} 
-                            location={"marketplace"}
-                            ethCost={availablePressings[i].attributes.eth_cost}
-                            />
-                        )}
-                    </Grid>
-                </Box>
-            </>
-        )
-    }
+    return(
+      <>
+        <h3>Coins for Sale:</h3>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              {availablePressings.map((e, i) =>
+                <ReusableCard 
+                  variant="rectangular" 
+                  width={350} 
+                  height={300} 
+                  key={i} 
+                  pressingData={availablePressings[i].attributes} 
+                  pressingId={availablePressings[i].id} 
+                  location={"marketplace"}
+                  ethCost={availablePressings[i].attributes.eth_cost}
+                />
+              )}
+            </Grid>
+          </Box>
+      </>
+    )
+  }
 }
 
 export default PressingContainer;

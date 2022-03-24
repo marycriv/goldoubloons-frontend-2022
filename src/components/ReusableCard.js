@@ -58,7 +58,7 @@ function ReusableCard(props) {
           </CardActions> 
         </Card>
       </Grid>
-        )
+    )
 }
 
 export default ReusableCard;

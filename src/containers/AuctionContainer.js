@@ -16,16 +16,16 @@ export default function AuctionContainer(){
   const { pressings } = useContext(PressingsContext);
 
   if (pressings === null) {
-      const n = 9;
-      return (
+    const n = 9;
+    return (
       <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2}>
-              {[...Array(n)].map((e, i) =>
-                  <Skeleton variant="rectangular" width={345} height={300} key={i} />
-              )}
-          </Grid> 
+        <Grid container spacing={2}>
+          {[...Array(n)].map((e, i) =>
+            <Skeleton variant="rectangular" width={345} height={300} key={i} />
+          )}
+        </Grid>
       </Box>
-      )
+    )
     }
 
     if (coins && pressings) {

@@ -14,7 +14,9 @@ import { login } from '../actions/login';
 
 import '../styling.css';
 
-const style = {
+function LoginPage(){
+
+  const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -27,73 +29,69 @@ const style = {
     outline: 0
   };
 
-function LoginPage(){
+  const { setUser } = useContext(UserContext);
+  const { setCoins } = useContext(CoinsContext);
+  const { setPressings } = useContext(PressingsContext);
 
-    const { setUser } = useContext(UserContext);
-    const { setCoins } = useContext(CoinsContext);
-    const { setPressings } = useContext(PressingsContext);
+  const navigate = useNavigate();
 
-    const [details, setDetails] = useState({username: "mike", password: "password"});
+  const [ details, setDetails ] = useState({ username: "mike", password: "password" });
+  const [ errDisplay, setErrDisplay ] = useState("error-alert");
 
-    const [errDisplay, setErrDisplay] = useState("error-alert")
-
-    const navigate = useNavigate();
-
-    return(
-        <div data-testid="login-form">
-            <Box sx={style}>
-                <Box
-                    component="form"
-                    noValidate
-                    autoComplete="off"
-                >
-                    <TextField
-                        required
-                        id="outlined-required"
-                        inputProps={{ "data-testid": "username-field" }}
-                        label="Username"
-                        onChange={e => setDetails({...details, username: e.target.value})}
-                        value={details.username || ""}
-                    />
-                    <br/>
-                    <br/>
-                    <TextField
-                        required
-                        id="outlined-password-input"
-                        inputProps={{ "data-testid": "password-field" }}
-                        label="Password"
-                        type="password"
-                        autoComplete="current-password"
-                        onChange={e => setDetails({...details, password: e.target.value})}
-                        value={details.password}
-                    />
-                    <br/>
-                    <br/>
-                    <Button 
-                        data-testid="login-button"
-                        variant="outlined"
-                        disableElevation
-                        onClick={async () => {
-                            const loginResponse = await login(details);
-                              { if (loginResponse.loginInfo.status == 200) { 
-                              setUser(loginResponse.loginInfo.user)
-                              setCoins(loginResponse.coinsInfo)
-                              setPressings(loginResponse.pressingInfo)
-                              navigate(`/main`) 
-                            } else {
-                              console.log("loginError");
-                              setErrDisplay("show-error");
-                            }
-                          }
-                        }}
-                    >Login</Button>
-                    <div className={`${errDisplay}`}>
-                      <Alert severity="error">Error, incorrect username or password.</Alert>
-                    </div>
-                </Box>
-            </Box>
-        </div>
-    )
+  return(
+    <div data-testid="login-form">
+      <Box sx={style}>
+        <Box
+          component="form"
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            required
+            id="outlined-required"
+            inputProps={{ "data-testid": "username-field" }}
+            label="Username"
+            onChange={e => setDetails({...details, username: e.target.value})}
+            value={details.username || ""}
+          />
+          <br/>
+          <br/>
+          <TextField
+            required
+            id="outlined-password-input"
+            inputProps={{ "data-testid": "password-field" }}
+            label="Password"
+            type="password"
+            onChange={e => setDetails({...details, password: e.target.value})}
+            value={details.password}
+          />
+          <br/>
+          <br/>
+          <Button 
+            data-testid="login-button"
+            variant="outlined"
+            disableElevation
+            onClick={async () => {
+              const loginResponse = await login(details);
+              { if (loginResponse.loginInfo.status == 200) { 
+                setUser(loginResponse.loginInfo.user)
+                setCoins(loginResponse.coinsInfo)
+                setPressings(loginResponse.pressingInfo)
+                navigate(`/main`) 
+              } else {
+                console.log("loginError");
+                setErrDisplay("show-error");
+              }
+              }
+            }}
+          >Login</Button>
+          <div className={`${errDisplay}`}>
+            <Alert severity="error">Error, incorrect username or password.</Alert>
+          </div>
+        </Box>
+      </Box>
+    </div>
+  )
 }
 
 export default LoginPage;
